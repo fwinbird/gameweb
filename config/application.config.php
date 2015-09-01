@@ -3,7 +3,7 @@ return array(
     'modules' => array(
         'Common',
         'Api',
-        'Admin',
+        'Keep',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(

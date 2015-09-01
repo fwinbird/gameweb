@@ -7,14 +7,12 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Users\Controller;
+namespace Keep\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Api\Client\ApiClient;
-//use Users\Forms\SignupForm;
-//use Users\Entity\User;
-use Admin\Forms\HeroaddForm;
-use Admin\Entity\Hero;
+use Keep\Forms\HeroaddForm;
+use Keep\Entity\Hero;
 
 use Zend\Validator\File\Size;
 use Zend\Validator\File\IsImage;
@@ -34,7 +32,7 @@ class IndexController extends AbstractActionController
     public function indexAction()
     {
         die('function indexaction');
-        $this->layout('layout/signup');
+/*        $this->layout('layout/signup');
         
         $viewData = array();
         $signupForm = new SignupForm();
@@ -107,8 +105,8 @@ class IndexController extends AbstractActionController
                 }
             }
         }
-        
+
         $viewData['signupForm'] = $signupForm;
         return $viewData;
-    }
+*/    }
 }

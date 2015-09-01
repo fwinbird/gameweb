@@ -1,13 +1,11 @@
 <?php
 
-namespace Users\Entity;
+namespace Keep\Entity;
 
 use Zend\Stdlib\Hydrator\ClassMethods;
 use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\Factory as InputFactory;
-//use Wall\Entity\Link;
-//use Wall\Entity\Image;
-//use Wall\Entity\Status;
+
 
 class Hero
 {
@@ -21,7 +19,7 @@ class Hero
     protected $createdAt = null;
     protected $updatedAt = null;
 
-    public function setheroId($id)
+    public function setheroId($heroid)
     {
         $this->heroid = (int)$heroid;
     }

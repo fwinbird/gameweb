@@ -10,16 +10,16 @@
 return array(
     'router' => array(
         'routes' => array(
-            'admin-heroadd' => array(
+            'keep-heroadd' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/admin/hero/add',
+                    'route'    => '/keep/hero/add',
 //                    'constraints' => array(
 //                        'username' => '\w+',
 //                        'feed_id' => '\d*',
 //                    ),
                     'defaults' => array(
-                        'controller' => 'Admin\Controller\Index',
+                        'controller' => 'Keep\Controller\Index',
                         'action' => 'heroadd'
                     ),
                 ),
@@ -28,7 +28,7 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Admin\Controller\Index' => 'Admin\Controller\IndexController'
+            'Keep\Controller\Index' => 'Keep\Controller\IndexController'
         ),
     ),
     'view_manager' => array(

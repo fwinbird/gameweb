@@ -1,5 +1,5 @@
 <?php
-namespace Admin\Forms;
+namespace Keep\Forms;
 
 use Zend\Form\Element;
 use Zend\Form\Form;
@@ -8,12 +8,12 @@ class HeroaddForm extends Form
 {
     public function __construct($name = null)
     {
-        parent::__construct('admin-heroadd');
+        parent::__construct('keep-heroadd');
         
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'well form-horizontal');
         
-        $this->add(array(
+/*        $this->add(array(
             'name' => 'heroid',
             'type'  => 'Zend\Form\Element\Text',
             'options' => array(
@@ -23,7 +23,7 @@ class HeroaddForm extends Form
                 )
             )
         ));
-        $this->add(array(
+*/        $this->add(array(
             'name' => 'heroname',
             'type'  => 'Zend\Form\Element\Text',
             'options' => array(
