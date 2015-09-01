@@ -2,10 +2,7 @@
 return array(
     'modules' => array(
         'Common',
-        'Wall',
-        'Feeds',
         'Api',
-        'Users',
         'Admin',
     ),
     'module_listener_options' => array(

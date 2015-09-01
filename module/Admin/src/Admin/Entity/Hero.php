@@ -21,7 +21,7 @@ class Hero
     protected $createdAt = null;
     protected $updatedAt = null;
 
-    public function setId($id)
+    public function setheroId($id)
     {
         $this->heroid = (int)$heroid;
     }
@@ -81,41 +81,41 @@ class Hero
         }
     }
 */
-    public function getId()
+    public function getheroId()
     {
-        return $this->id;
+       return  $this->heroid;
     }
-    
-    public function getUsername()
+
+    public function getheroname()
     {
-        return $this->username;
+        return $this->heroname;
     }
-    
-    public function getName()
+
+    public function getvocationid()
     {
-        return $this->name;
+        return $this->vocationid;
     }
-    
-    public function getSurname()
+
+    public function getraceid()
     {
-        return $this->surname;
+        return $this->raceid;
     }
-    
-    public function getBio()
-    {
-        return $this->bio;
-    }
-    
-    public function getLocation()
-    {
-        return $this->location;
-    }
-    
-    public function getGender()
+
+    public function getgender()
     {
         return $this->gender;
     }
+    public function getcreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    public function getupdatedAt()
+    {
+        return $this->updatedAt;
+    }
     
+/*
     public function getAvatar()
     {
         return $this->avatar;
@@ -140,21 +140,22 @@ class Hero
     {
         return $this->updatedAt;
     }
-    
+*/
     /**
      * Return the configuration of the validators and filters for this form
      *
      * @return InputFilter
      */
+
     public static function getInputFilter()
     {
         $inputFilter = new InputFilter();
         $factory = new InputFactory();
-        
+
         $inputFilter->add($factory->createInput(array(
-            'name'     => 'username',
+            'name' => 'heroname',
             'required' => true,
-            'filters'  => array(
+            'filters' => array(
                 array('name' => 'StripTags'),
                 array('name' => 'StringTrim'),
             ),
@@ -172,136 +173,7 @@ class Hero
                 ),
             ),
         )));
-        
-        $inputFilter->add($factory->createInput(array(
-            'name'     => 'email',
-            'required' => true,
-            'filters'  => array(
-                array('name' => 'StripTags'),
-                array('name' => 'StringTrim'),
-            ),
-            'validators' => array(
-                array(
-                    'name' => 'NotEmpty',
-                    'break_chain_on_failure' => true
-                ),
-                array(
-                    'name' => 'StringLength',
-                    'options' => array(
-                        'min' => 6,
-                        'max' => 254
-                    ),
-                    'break_chain_on_failure' => true
-                ),
-                array(
-                    'name' => 'EmailAddress',
-                    'options' => array(
-                        'messages' => array(
-                            \Zend\Validator\EmailAddress::INVALID_FORMAT => 'The input is not a valid email address',
-                        )
-                    )
-                ),
-            ),
-        )));
-        
-        $inputFilter->add($factory->createInput(array(
-            'name'     => 'password',
-            'required' => true,
-            'filters'  => array(
-                array('name' => 'StripTags'),
-                array('name' => 'StringTrim'),
-            ),
-            'validators' => array(
-                array(
-                    'name' => 'NotEmpty',
-                    'break_chain_on_failure' => true
-                ),
-            ),
-        )));
-        
-        $inputFilter->add($factory->createInput(array(
-            'name'     => 'repeat_password',
-            'required' => true,
-            'filters'  => array(
-                array('name' => 'StripTags'),
-                array('name' => 'StringTrim'),
-            ),
-            'validators' => array(
-                array(
-                    'name' => 'NotEmpty',
-                    'break_chain_on_failure' => true
-                ),
-                array(
-                    'name' => 'Identical',
-                    'options' => array(
-                        'token' => 'password'
-                    )
-                ),
-            ),
-        )));
-        
-        $inputFilter->add($factory->createInput(array(
-            'name'     => 'name',
-            'required' => true,
-            'filters'  => array(
-                array('name' => 'StripTags'),
-                array('name' => 'StringTrim'),
-            ),
-            'validators' => array(
-                array(
-                    'name' => 'NotEmpty',
-                    'break_chain_on_failure' => true
-                ),
-                array(
-                    'name' => 'StringLength',
-                    'options' => array(
-                        'min' => 1,
-                        'max' => 25
-                    )
-                ),
-            ),
-        )));
-        
-        $inputFilter->add($factory->createInput(array(
-            'name'     => 'surname',
-            'required' => true,
-            'filters'  => array(
-                array('name' => 'StripTags'),
-                array('name' => 'StringTrim'),
-            ),
-            'validators' => array(
-                array(
-                    'name' => 'NotEmpty',
-                    'break_chain_on_failure' => true
-                ),
-                array(
-                    'name' => 'StringLength',
-                    'options' => array(
-                        'min' => 1,
-                        'max' => 50
-                    )
-                ),
-            ),
-        )));
-        
-        $inputFilter->add($factory->createInput(array(
-            'name'     => 'bio',
-            'required' => false,
-            'filters'  => array(
-                array('name' => 'StripTags'),
-                array('name' => 'StringTrim'),
-            ),
-        )));
-        
-        $inputFilter->add($factory->createInput(array(
-            'name'     => 'location',
-            'required' => false,
-            'filters'  => array(
-                array('name' => 'StripTags'),
-                array('name' => 'StringTrim'),
-            ),
-        )));
-        
+
         $inputFilter->add($factory->createInput(array(
             'name'     => 'gender',
             'required' => false,
@@ -319,7 +191,184 @@ class Hero
                 ),
             ),
         )));
-        
+
         return $inputFilter;
     }
+        /*    public static function getInputFilter()
+            {
+                $inputFilter = new InputFilter();
+                $factory = new InputFactory();
+
+                $inputFilter->add($factory->createInput(array(
+                    'name'     => 'heroname',
+                    'required' => true,
+                    'filters'  => array(
+                        array('name' => 'StripTags'),
+                        array('name' => 'StringTrim'),
+                    ),
+                    'validators' => array(
+                        array(
+                            'name' => 'NotEmpty',
+                            'break_chain_on_failure' => true
+                        ),
+                        array(
+                            'name' => 'StringLength',
+                            'options' => array(
+                                'min' => 1,
+                                'max' => 50
+                            ),
+                        ),
+                    ),
+                )));
+
+                $inputFilter->add($factory->createInput(array(
+                    'name'     => 'email',
+                    'required' => true,
+                    'filters'  => array(
+                        array('name' => 'StripTags'),
+                        array('name' => 'StringTrim'),
+                    ),
+                    'validators' => array(
+                        array(
+                            'name' => 'NotEmpty',
+                            'break_chain_on_failure' => true
+                        ),
+                        array(
+                            'name' => 'StringLength',
+                            'options' => array(
+                                'min' => 6,
+                                'max' => 254
+                            ),
+                            'break_chain_on_failure' => true
+                        ),
+                        array(
+                            'name' => 'EmailAddress',
+                            'options' => array(
+                                'messages' => array(
+                                    \Zend\Validator\EmailAddress::INVALID_FORMAT => 'The input is not a valid email address',
+                                )
+                            )
+                        ),
+                    ),
+                )));
+
+                $inputFilter->add($factory->createInput(array(
+                    'name'     => 'password',
+                    'required' => true,
+                    'filters'  => array(
+                        array('name' => 'StripTags'),
+                        array('name' => 'StringTrim'),
+                    ),
+                    'validators' => array(
+                        array(
+                            'name' => 'NotEmpty',
+                            'break_chain_on_failure' => true
+                        ),
+                    ),
+                )));
+
+                $inputFilter->add($factory->createInput(array(
+                    'name'     => 'repeat_password',
+                    'required' => true,
+                    'filters'  => array(
+                        array('name' => 'StripTags'),
+                        array('name' => 'StringTrim'),
+                    ),
+                    'validators' => array(
+                        array(
+                            'name' => 'NotEmpty',
+                            'break_chain_on_failure' => true
+                        ),
+                        array(
+                            'name' => 'Identical',
+                            'options' => array(
+                                'token' => 'password'
+                            )
+                        ),
+                    ),
+                )));
+
+                $inputFilter->add($factory->createInput(array(
+                    'name'     => 'name',
+                    'required' => true,
+                    'filters'  => array(
+                        array('name' => 'StripTags'),
+                        array('name' => 'StringTrim'),
+                    ),
+                    'validators' => array(
+                        array(
+                            'name' => 'NotEmpty',
+                            'break_chain_on_failure' => true
+                        ),
+                        array(
+                            'name' => 'StringLength',
+                            'options' => array(
+                                'min' => 1,
+                                'max' => 25
+                            )
+                        ),
+                    ),
+                )));
+
+                $inputFilter->add($factory->createInput(array(
+                    'name'     => 'surname',
+                    'required' => true,
+                    'filters'  => array(
+                        array('name' => 'StripTags'),
+                        array('name' => 'StringTrim'),
+                    ),
+                    'validators' => array(
+                        array(
+                            'name' => 'NotEmpty',
+                            'break_chain_on_failure' => true
+                        ),
+                        array(
+                            'name' => 'StringLength',
+                            'options' => array(
+                                'min' => 1,
+                                'max' => 50
+                            )
+                        ),
+                    ),
+                )));
+
+                $inputFilter->add($factory->createInput(array(
+                    'name'     => 'bio',
+                    'required' => false,
+                    'filters'  => array(
+                        array('name' => 'StripTags'),
+                        array('name' => 'StringTrim'),
+                    ),
+                )));
+
+                $inputFilter->add($factory->createInput(array(
+                    'name'     => 'location',
+                    'required' => false,
+                    'filters'  => array(
+                        array('name' => 'StripTags'),
+                        array('name' => 'StringTrim'),
+                    ),
+                )));
+
+                $inputFilter->add($factory->createInput(array(
+                    'name'     => 'gender',
+                    'required' => false,
+                    'filters'  => array(
+                        array('name' => 'StripTags'),
+                        array('name' => 'StringTrim'),
+                        array('name' => 'Int'),
+                    ),
+                    'validators' => array(
+                        array(
+                            'name' => 'InArray',
+                            'options' => array(
+                                'haystack' => array('0', '1')
+                            )
+                        ),
+                    ),
+                )));
+
+                return $inputFilter;
+            }
+            */
 }
