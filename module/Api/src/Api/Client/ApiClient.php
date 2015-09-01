@@ -27,13 +27,15 @@ class ApiClient {
      *
      * @var string
      */
-    protected static $endpointHost = 'http://localhost.api10';
+    protected static $endpointHost = 'http://localhost.gamehome';
+    protected static $endpointAddHero = '/admin/heros/add';
+//
     protected static $endpointWall = '/api/wall/%s';
     protected static $endpointFeeds = '/api/feeds/%s';
     protected static $endpointSpecificFeed = '/api/feeds/%s/%d';
     protected static $endpointUsers = '/api/users';
     protected static $endpointGetUser = '/api/users/%s';
-    
+
     /**
      * Perform an API reqquest to retrieve the data of the wall
      * of an specific user on the social network
