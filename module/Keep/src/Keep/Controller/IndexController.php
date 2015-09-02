@@ -8,12 +8,12 @@
  */
 
 namespace Keep\Controller;
-
 use Zend\Mvc\Controller\AbstractActionController;
 use Api\Client\ApiClient;
 use Keep\Forms\HeroaddForm;
 use Keep\Entity\Hero;
 
+use Zend\Http\Request as Request;
 use Zend\Validator\File\Size;
 use Zend\Validator\File\IsImage;
 
@@ -42,8 +42,7 @@ class IndexController extends AbstractActionController
 //                die('die function heroaddAction');
                 $files = $request->getFiles()->toArray();
                 $data = $heroaddForm->getData();
-                $data['avatar'] = $files['avatar']['name'] != '' ? $files['avatar']['name'] : null;
-
+/*
                 if ($data['avatar'] !== null) {
                     $size = new Size(array('max' => 2048000));
                     $isImage = new IsImage();
@@ -86,12 +85,12 @@ class IndexController extends AbstractActionController
                         }
                     }
                 }
-
+*/
 //                unset($data['repeat_password']);
 //                unset($data['csrf']);
 //                unset($data['register']);
 
-//                $response = ApiClient::registerUser($data);
+                $response = ApiClient::addHero($data);
 
                 if ($response['result'] == true) {
                     $this->flashMessenger()->addMessage('Account created!');

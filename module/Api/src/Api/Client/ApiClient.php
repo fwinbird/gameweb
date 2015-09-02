@@ -28,7 +28,7 @@ class ApiClient {
      * @var string
      */
     protected static $endpointHost = 'http://localhost.gamehome';
-    protected static $endpointAddHero = '/keep/heros/add';
+    protected static $endpointAddHero = '/keep/hero/add';
 /*
     protected static $endpointWall = '/api/wall/%s';
     protected static $endpointFeeds = '/api/feeds/%s';
@@ -36,6 +36,12 @@ class ApiClient {
     protected static $endpointUsers = '/api/users';
     protected static $endpointGetUser = '/api/users/%s';
 */
+
+    public static function addHero($data)
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointAddHero, $data);
+        return self::doRequest($url);
+    }
 /*
     public static function getWall($username)
     {
@@ -98,7 +104,7 @@ class ApiClient {
      * @return Zend\Http\Response
      * @author Christopher
      */
-/*    protected static function doRequest($url, array $postData = null, $method = Request::METHOD_GET)
+    protected static function doRequest($url, array $postData = null, $method = Request::METHOD_POST)
     {
         $client = self::getClientInstance();
         $client->setUri($url);
@@ -116,5 +122,5 @@ class ApiClient {
             return FALSE;
         }
     }
-*/
+
 }
