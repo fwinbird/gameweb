@@ -67,7 +67,14 @@ class HeroaddForm extends Form
                 )
             )
         ));
-
+        $this->add(array(
+            'name' => 'addhero',
+            'attributes' => array(
+                'type'  => 'submit',
+                'value' => 'AddHero',
+                'class' => 'btn btn-primary'
+            ),
+        ));
         /*
         $this->add(array(
             'name' => 'avatar',
