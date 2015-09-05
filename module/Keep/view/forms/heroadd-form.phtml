@@ -1,7 +1,7 @@
 <?php $form = $this->form; ?>
 <?php $form->prepare(); ?>
 <?php echo $this->form()->openTag($form) ?>
-<div class="control-group <?php echo count($form->get('heroname')->getMessages()) > 0 ? 'error' : '' ?>">
+<!--<div class="control-group <?php echo count($form->get('heroname')->getMessages()) > 0 ? 'error' : '' ?>">
     <?php echo $this->formLabel($form->get('heroname')); ?>
     <div class="controls">
         <?php echo $this->formElement($form->get('heroname')); ?>
@@ -12,6 +12,15 @@
                 ->render($form->get('heroname')); ?>
     </div>
 </div>
+-->
+    <div class="control-group <?php echo count($form->get('heroname')->getMessages()) > 0 ? 'error' : '' ?>">
+        <?php echo $this->formLabel($form->get('heroname')); ?>
+        <div class="controls">
+            <?php echo $this->formElement($form->get('heroname')); ?>
+            <?php echo $this->formElementErrors($form->get('heroname')) ?>
+        </div>
+    </div>
+
 <div class="control-group <?php echo count($form->get('vocationid')->getMessages()) > 0 ? 'error' : '' ?>">
     <?php echo $this->formLabel($form->get('vocationid')); ?>
     <div class="controls">

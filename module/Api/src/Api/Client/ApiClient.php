@@ -84,7 +84,7 @@ class ApiClient {
         $url = self::$endpointHost . sprintf(self::$endpointGetUser, $username);
         return self::doRequest($url, null, Request::METHOD_GET);
     }
-
+*/
     protected static function getClientInstance()
     {
         if (self::$client === null) {
@@ -94,7 +94,7 @@ class ApiClient {
         
         return self::$client;
     }
-*/
+
     /**
      * Perform a request to the API
      *
