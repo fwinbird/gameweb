@@ -35,7 +35,7 @@ class HeroaddForm extends Form
         ));
         $this->add(array(
             'name' => 'vocationid',
-            'type'  => 'Zend\Form\Element\Password',
+            'type'  => 'Zend\Form\Element\Text',
             'options' => array(
                 'label' => 'VocationId',
                 'label_attributes' => array(
@@ -45,7 +45,7 @@ class HeroaddForm extends Form
         ));
         $this->add(array(
             'name' => 'raceid',
-            'type'  => 'Zend\Form\Element\Password',
+            'type'  => 'Zend\Form\Element\Text',
             'options' => array(
                 'label' => 'RaceId',
                 'label_attributes' => array(

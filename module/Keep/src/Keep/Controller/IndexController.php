@@ -25,6 +25,7 @@ class IndexController extends AbstractActionController
 
         $viewData = array();
         $heroaddForm = new HeroaddForm();
+
         $heroaddForm->setAttribute('action', $this->url()->fromRoute('keep-heroadd'));
 
         $request = $this->getRequest();
