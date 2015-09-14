@@ -158,6 +158,55 @@ class IndexController extends AbstractActionController
         return $viewData;
 
     }
+    public function campaddAction(){
+        die('campaddAction');
+        $this->layout('layout/campadd');
+
+        $viewData = array();
+        $raceaddForm = new campaddForm();
+        $raceaddForm->setAttribute('action', $this->url()->fromRoute('keep-campadd'));
+
+        $request = $this->getRequest();
+//        print_r($request);
+//        die('request');
+        if ($request->isPost()) {
+
+            $data = $request->getPost()->toArray();
+            $raceaddForm->setInputFilter(race::getInputFilter());
+            $raceaddForm->setData($data);
+
+            if ($raceaddForm->isValid()) {
+//                die('web raceadd isvalid');
+                $files = $request->getFiles()->toArray();
+                $data = $raceaddForm->getData();
+//            print_r($data);
+//            die();
+                $response = ApiClient::addrace($data);
+
+                if ($response['result'] == true) {
+                    $this->flashMessenger()->addMessage('Account created!');
+//                    return $this->redirect()->toRoute('wall', array('username' => $data['username']));
+                }
+            }
+        }
+
+        $viewData['heroaddForm'] = $heroaddForm;
+        if($this->flashMessenger()-> hasMessages()){
+            $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
+        }
+        return $viewData;
+
+    }
+
+    public function vocationaddAction(){
+
+    }
+    public function stepaddAction(){
+
+    }
+    public function skilladdAction(){
+
+    }
     public function indexAction()
     {
         die('function indexaction');
