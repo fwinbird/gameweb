@@ -11,7 +11,17 @@ namespace Keep\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Api\Client\ApiClient;
 use Keep\Forms\HeroaddForm;
+use Keep\Forms\RaceaddForm;
+use Keep\Forms\VocationaddForm;
+use Keep\Forms\CampaddForm;
+use Keep\Forms\SkilladdForm;
+use Keep\Forms\StepaddForm;
 use Keep\Entity\Hero;
+use Keep\Entity\Race;
+use Keep\Entity\Vocation;
+use Keep\Entity\Camp;
+use Keep\Entity\Skill;
+use Keep\Entity\Step;
 
 use Zend\Http\Request as Request;
 use Zend\Validator\File\Size;
@@ -33,14 +43,14 @@ class IndexController extends AbstractActionController
 //        print_r($request);
 //        die('request');
         if ($request->isPost()) {
-            $data = $request->getPost()->toArray();
 
+            $data = $request->getPost()->toArray();
             $heroaddForm->setInputFilter(Hero::getInputFilter());
             $heroaddForm->setData($data);
 
 
             if ($heroaddForm->isValid()) {
-//                die('die function heroaddAction');
+//                die('web heroadd isvalid');
                 $files = $request->getFiles()->toArray();
                 $data = $heroaddForm->getData();
 /*
@@ -90,7 +100,8 @@ class IndexController extends AbstractActionController
 //                unset($data['repeat_password']);
 //                unset($data['csrf']);
 //                unset($data['register']);
-
+//            print_r($data);
+//            die();
                 $response = ApiClient::addHero($data);
 
                 if ($response['result'] == true) {
@@ -101,6 +112,49 @@ class IndexController extends AbstractActionController
         }
 
         $viewData['heroaddForm'] = $heroaddForm;
+        if($this->flashMessenger()-> hasMessages()){
+            $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
+        }
+        return $viewData;
+
+    }
+    public function raceaddAction()
+    {
+        die('raceaddAction');
+        $this->layout('layout/raceadd');
+
+        $viewData = array();
+        $raceaddForm = new raceaddForm();
+        $raceaddForm->setAttribute('action', $this->url()->fromRoute('keep-raceadd'));
+
+        $request = $this->getRequest();
+//        print_r($request);
+//        die('request');
+        if ($request->isPost()) {
+
+            $data = $request->getPost()->toArray();
+            $raceaddForm->setInputFilter(race::getInputFilter());
+            $raceaddForm->setData($data);
+
+            if ($raceaddForm->isValid()) {
+//                die('web raceadd isvalid');
+                $files = $request->getFiles()->toArray();
+                $data = $raceaddForm->getData();
+//            print_r($data);
+//            die();
+                $response = ApiClient::addrace($data);
+
+                if ($response['result'] == true) {
+                    $this->flashMessenger()->addMessage('Account created!');
+//                    return $this->redirect()->toRoute('wall', array('username' => $data['username']));
+                }
+            }
+        }
+
+        $viewData['heroaddForm'] = $heroaddForm;
+        if($this->flashMessenger()-> hasMessages()){
+            $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
+        }
         return $viewData;
 
     }

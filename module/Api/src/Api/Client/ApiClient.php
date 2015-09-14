@@ -40,7 +40,7 @@ class ApiClient {
     public static function addHero($data)
     {
         $url = self::$endpointHost . sprintf(self::$endpointAddHero, $data);
-        return self::doRequest($url);
+        return self::doRequest($url,$data);
     }
 /*
     public static function getWall($username)
@@ -104,24 +104,25 @@ class ApiClient {
      * @return Zend\Http\Response
      * @author Christopher
      */
-    protected static function doRequest($url, array $postData = null, $method = Request::METHOD_POST)
+    protected static function doRequest($url, array $postData , $method = Request::METHOD_POST)
     {
         $client = self::getClientInstance();
         $client->setUri($url);
         $client->setMethod($method);
-        
+
         if ($postData !== null) {
             $client->setParameterPost($postData);
         }
         
         $response = $client->send();
 //        print_r($response->getBody());
-//        die();
+//        die('');
         if ($response->isSuccess()) {
             return JsonDecoder::decode($response->getBody(), Json::TYPE_ARRAY);
         } else {
             return FALSE;
         }
+
     }
 
 }

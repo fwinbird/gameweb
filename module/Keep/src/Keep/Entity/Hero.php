@@ -173,6 +173,50 @@ class Hero
         )));
 
         $inputFilter->add($factory->createInput(array(
+            'name' => 'vocationid',
+            'required' => true,
+            'filters' => array(
+                array('name' => 'StripTags'),
+                array('name' => 'StringTrim'),
+            ),
+            'validators' => array(
+                array(
+                    'name' => 'NotEmpty',
+                    'break_chain_on_failure' => true
+                ),
+                array(
+                    'name' => 'StringLength',
+                    'options' => array(
+                        'min' => 1,
+                        'max' => 50
+                    ),
+                ),
+            ),
+        )));
+
+        $inputFilter->add($factory->createInput(array(
+            'name' => 'raceid',
+            'required' => true,
+            'filters' => array(
+                array('name' => 'StripTags'),
+                array('name' => 'StringTrim'),
+            ),
+            'validators' => array(
+                array(
+                    'name' => 'NotEmpty',
+                    'break_chain_on_failure' => true
+                ),
+                array(
+                    'name' => 'StringLength',
+                    'options' => array(
+                        'min' => 1,
+                        'max' => 50
+                    ),
+                ),
+            ),
+        )));
+
+        $inputFilter->add($factory->createInput(array(
             'name'     => 'gender',
             'required' => false,
             'filters'  => array(
