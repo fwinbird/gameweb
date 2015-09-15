@@ -29,6 +29,11 @@ class ApiClient {
      */
     protected static $endpointHost = 'http://localhost.gamehome';
     protected static $endpointAddHero = '/keep/hero/add';
+    protected static $endpointAddCamp = '/keep/camp/add';
+    protected static $endpointAddRace = '/keep/race/add';
+    protected static $endpointAddSkill = '/keep/skill/add';
+    protected static $endpointAddStep = '/keep/step/add';
+    protected static $endpointAddVocation = '/keep/vocation/add';
 /*
     protected static $endpointWall = '/api/wall/%s';
     protected static $endpointFeeds = '/api/feeds/%s';
@@ -40,6 +45,36 @@ class ApiClient {
     public static function addHero($data)
     {
         $url = self::$endpointHost . sprintf(self::$endpointAddHero, $data);
+        return self::doRequest($url,$data);
+    }
+
+    public static function addCamp($data)
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointAddCamp, $data);
+        return self::doRequest($url,$data);
+    }
+
+    public static function addRace($data)
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointAddRace, $data);
+        return self::doRequest($url,$data);
+    }
+    
+    public static function addStep($data)
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointAddStep, $data);
+        return self::doRequest($url,$data);
+    }
+
+    public static function addSkill($data)
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointAddSkill, $data);
+        return self::doRequest($url,$data);
+    }
+
+    public static function addVocation($data)
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointAddVocation, $data);
         return self::doRequest($url,$data);
     }
 /*

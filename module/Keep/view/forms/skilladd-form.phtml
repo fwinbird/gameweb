@@ -1,0 +1,28 @@
+<?php $form = $this->form; ?>
+<?php $form->prepare(); ?>
+<?php echo $this->form()->openTag($form) ?>
+
+    <div class="control-group <?php echo count($form->get('skillname')->getMessages()) > 0 ? 'error' : '' ?>">
+        <?php echo $this->formLabel($form->get('skillname')); ?>
+        <div class="controls">
+            <?php echo $this->formElement($form->get('skillname')); ?>
+            <?php echo $this->formElementErrors($form->get('skillname')) ?>
+        </div>
+    </div>
+
+    <div class="control-group <?php echo count($form->get('textcn')->getMessages()) > 0 ? 'error' : '' ?>">
+        <?php echo $this->formLabel($form->get('textcn')); ?>
+        <div class="controls">
+            <?php echo $this->formElement($form->get('textcn')); ?>
+            <?php echo $this->formElementErrors($form->get('textcn')) ?>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <?php echo $this->formElement($form->get('addskill')); ?>
+        </div>
+    </div>
+
+
+<?php echo $this->form()->closeTag() ?>
