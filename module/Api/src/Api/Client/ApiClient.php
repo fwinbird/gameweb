@@ -27,6 +27,8 @@ class ApiClient {
      *
      * @var string
      */
+/////    protected static $endpointHost = 'http://game.shaguangyu.fr';
+//    protected static $endpointHost ='http://api.card.shaguangyu.fr/';
     protected static $endpointHost = 'http://localhost.gamehome';
     protected static $endpointAddHero = '/keep/hero/add';
     protected static $endpointAddCamp = '/keep/camp/add';
