@@ -6,7 +6,7 @@ return array(
             'home' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '[/home[/]]',
+                    'route'    => '/',
                     'defaults' => array(
                         'controller' => 'Home\Controller\Index',
                         'action'     => 'index',
@@ -28,8 +28,8 @@ return array(
             __DIR__ . '/../view',
         ),
         'template_map' => array(
-//            'layout/register'	=> __DIR__ . '/../view/layout/layout.phtml',
-            'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
+            'layout/index'	=> __DIR__ . '/../view/layout/index.phtml',
+//            'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
