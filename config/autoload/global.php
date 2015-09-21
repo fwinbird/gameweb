@@ -12,18 +12,20 @@
  */
 
 return array(
+
     'navigation' => array(
         'default' => array(
             array(
-                'label' => 'Home',
-                'route' => 'wall',
+                'label' => 'Keep',
+                'route' => '/',
             ),
-            array(
-                'label' => 'Feeds',
-                'route' => 'feeds',
-            ),
+//            array(
+//                'label' => 'Feeds',
+//                'route' => 'feeds',
+//            ),
         )
     ),
+
     'service_manager' => array(
         'factories' => array(
             'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
