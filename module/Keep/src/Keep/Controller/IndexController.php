@@ -319,6 +319,96 @@ class IndexController extends AbstractActionController
 
     }
 
+    public function herodisplayAction()
+    {
+        $this->layout('layout/herodisplay');
+
+        $viewData = array();
+        $herodisplayForm = new HerodisplayForm();
+
+        $herodisplayForm->setAttribute('action', $this->url()->fromRoute('keep-herodisplay'));
+
+        $request = $this->getRequest();
+
+//        print_r($request);
+//        die('request');
+        if ($request->isPost()) {
+
+            $data = $request->getPost()->toArray();
+            $herodisplayForm->setInputFilter(Hero::getInputFilter());
+            $herodisplayForm->setData($data);
+
+
+            if ($herodisplayForm->isValid()) {
+//                die('web herodisplay isvalid');
+                $files = $request->getFiles()->toArray();
+                $data = $herodisplayForm->getData();
+                /*
+                                if ($data['avatar'] !== null) {
+                                    $size = new Size(array('max' => 2048000));
+                                    $isImage = new IsImage();
+                                    $filename = $data['avatar'];
+                
+                                    $adapter = new \Zend\File\Transfer\Adapter\Http();
+                                    $adapter->setValidators(array($size, $isImage), $filename);
+                
+                                    if (!$adapter->isValid($filename)){
+                                        $errors = array();
+                                        foreach($adapter->getMessages() as $key => $row) {
+                                            $errors[] = $row;
+                                        }
+                                        $signupForm->setMessages(array('avatar' => $errors));
+                                    }
+                
+                                    $destPath = 'data/tmp/';
+                                    $adapter->setDestination($destPath);
+                
+                                    $fileinfo = $adapter->getFileInfo();
+                                    preg_match('/.+\/(.+)/', $fileinfo['avatar']['type'], $matches);
+                                    $newFilename = sprintf('%s.%s', sha1(uniqid(time(), true)), $matches[1]);
+                
+                                    $adapter->displayFilter('File\Rename',
+                                        array(
+                                            'target' => $destPath . $newFilename,
+                                            'overwrite' => true,
+                                        )
+                                    );
+                
+                                    if ($adapter->receive($filename)) {
+                                        $data['avatar'] = base64_encode(
+                                            file_get_contents(
+                                                $destPath . $newFilename
+                                            )
+                                        );
+                
+                                        if (file_exists($destPath . $newFilename)) {
+                                            unlink($destPath . $newFilename);
+                                        }
+                                    }
+                                }
+                */
+//                unset($data['repeat_password']);
+//                unset($data['csrf']);
+//                unset($data['register']);
+//            print_r($data);
+//            die();
+                $response = ApiClient::displayHero($data);
+
+                if ($response['result'] == true) {
+                    $this->flashMessenger()->displayMessage('Hero created!');
+//                    return $this->redirect()->toRoute('wall', array('username' => $data['username']));
+                }
+            }
+        }
+
+        $viewData['herodisplayForm'] = $herodisplayForm;
+        if($this->flashMessenger()-> hasMessages()){
+            $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
+        }
+        return $viewData;
+
+    }
+
     public function indexAction()
     {
         die('function indexaction');

@@ -14,20 +14,9 @@ use Zend\Json\Json as Json;
  * @package default
  */
 class ApiClient {
-    
-    /**
-     * Holds the client we will reuse in this class
-     *
-     * @var Client
-     */
+
     protected static $client = null;
-    
-    /**
-     * Holds the endpoint urls
-     *
-     * @var string
-     */
-/////    protected static $endpointHost = 'http://game.shaguangyu.fr';
+
 //    protected static $endpointHost ='http://api.card.shaguangyu.fr/';
     protected static $endpointHost = 'http://localhost.gamehome';
     protected static $endpointAddHero = '/keep/hero/add';
@@ -36,6 +25,8 @@ class ApiClient {
     protected static $endpointAddSkill = '/keep/skill/add';
     protected static $endpointAddStep = '/keep/step/add';
     protected static $endpointAddVocation = '/keep/vocation/add';
+
+    protected static $endpointDisplayHero = '/keep/hero/display';
 /*
     protected static $endpointWall = '/api/wall/%s';
     protected static $endpointFeeds = '/api/feeds/%s';
@@ -47,6 +38,12 @@ class ApiClient {
     public static function addHero($data)
     {
         $url = self::$endpointHost . sprintf(self::$endpointAddHero, $data);
+        return self::doRequest($url,$data);
+    }
+
+    public static function displayHero($data)
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointDisplayHero, $data);
         return self::doRequest($url,$data);
     }
 
@@ -79,49 +76,7 @@ class ApiClient {
         $url = self::$endpointHost . sprintf(self::$endpointAddVocation, $data);
         return self::doRequest($url,$data);
     }
-/*
-    public static function getWall($username)
-    {
-        $url = self::$endpointHost . sprintf(self::$endpointWall, $username);
-        return self::doRequest($url);
-    }
 
-    public static function postWallContent($username, $data)
-    {
-        $url = self::$endpointHost . sprintf(self::$endpointWall, $username);
-        return self::doRequest($url, $data, Request::METHOD_POST);
-    }
-
-    public static function getFeeds($username)
-    {
-        $url = self::$endpointHost . sprintf(self::$endpointFeeds, $username);
-        return self::doRequest($url);
-    }
-
-    public static function addFeedSubscription($username, $postData)
-    {
-        $url = self::$endpointHost . sprintf(self::$endpointFeeds, $username);
-        return self::doRequest($url, $postData, Request::METHOD_POST);
-    }
-
-    public static function removeFeedSubscription($username, $feedId)
-    {
-        $url = self::$endpointHost . sprintf(self::$endpointSpecificFeed, $username, $feedId);
-        return self::doRequest($url, null, Request::METHOD_DELETE);
-    }
-
-    public static function registerUser($postData)
-    {
-        $url = self::$endpointHost . self::$endpointUsers;
-        return self::doRequest($url, $postData, Request::METHOD_POST);
-    }
-
-    public static function getUser($username)
-    {
-        $url = self::$endpointHost . sprintf(self::$endpointGetUser, $username);
-        return self::doRequest($url, null, Request::METHOD_GET);
-    }
-*/
     protected static function getClientInstance()
     {
         if (self::$client === null) {

@@ -25,6 +25,16 @@ return array(
                 ),
             ),
 
+            'keep-herodisplay' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/keep/hero/display',
+                    'defaults' => array(
+                        'controller' => 'Keep\Controller\Index',
+                        'action' => 'herodisplay'
+                    ),
+                ),
+            ),
             'keep-raceadd' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
