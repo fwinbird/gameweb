@@ -41,10 +41,17 @@ class ApiClient {
         return self::doRequest($url,$data);
     }
 
-    public static function displayHero($data)
+/*    public static function displayHero($data)
     {
         $url = self::$endpointHost . sprintf(self::$endpointDisplayHero, $data);
         return self::doRequest($url,$data);
+    }
+*/
+    public static function displayHero($data)
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointDisplayHero, $data);
+        die($url);
+        return self::doRequest($url);
     }
 
     public static function addCamp($data)
@@ -98,6 +105,7 @@ class ApiClient {
      */
     protected static function doRequest($url, array $postData , $method = Request::METHOD_POST)
     {
+        die('die apiclient dorequest');
         $client = self::getClientInstance();
         $client->setUri($url);
         $client->setMethod($method);
@@ -107,8 +115,8 @@ class ApiClient {
         }
         
         $response = $client->send();
-//        print_r($response->getBody());
-//        die('');
+        print_r($response->getBody());
+        die('');
         if ($response->isSuccess()) {
             return JsonDecoder::decode($response->getBody(), Json::TYPE_ARRAY);
         } else {

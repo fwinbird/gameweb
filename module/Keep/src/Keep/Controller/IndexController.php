@@ -23,6 +23,8 @@ use Keep\Entity\Camp;
 use Keep\Entity\Skill;
 use Keep\Entity\Step;
 
+use Keep\Forms\HerodisplayForm;
+
 use Zend\Http\Request as Request;
 use Zend\Validator\File\Size;
 use Zend\Validator\File\IsImage;
@@ -328,12 +330,12 @@ class IndexController extends AbstractActionController
 
         $herodisplayForm->setAttribute('action', $this->url()->fromRoute('keep-herodisplay'));
 
-        $request = $this->getRequest();
-
+        $request = $this->getRequest();///////GET http://localhost.gameweb/keep/hero/
+        die($request);
 //        print_r($request);
 //        die('request');
         if ($request->isPost()) {
-
+            die('request is post');
             $data = $request->getPost()->toArray();
             $herodisplayForm->setInputFilter(Hero::getInputFilter());
             $herodisplayForm->setData($data);

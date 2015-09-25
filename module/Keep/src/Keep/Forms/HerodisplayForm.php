@@ -15,22 +15,12 @@ class HerodisplayForm extends Form
     public function __construct($name = null)
     {
         parent::__construct('keep-herodisplay');
-
+//        die('die hero display construct');
 //        $this->setAttribute('method', 'post');
-        $this->setAttribute('method', 'getlist');
+//        $this->setAttribute('method', 'getlist');
         $this->setAttribute('class', 'well form-horizontal');
-
-        /*        $this->display(array(
-                    'name' => 'heroid',
-                    'type'  => 'Zend\Form\Element\Text',
-                    'options' => array(
-                        'label' => 'HeroId',
-                        'label_attributes' => array(
-                            'class' => 'control-label'
-                        )
-                    )
-                ));
-        */        $this->display(array(
+//        die('die hero display construct');
+        $this->add(array(
         'name' => 'heroname',
         'type'  => 'Zend\Form\Element\Text',
         'options' => array(
@@ -40,7 +30,7 @@ class HerodisplayForm extends Form
             )
         )
     ));
-        $this->display(array(
+        $this->add(array(
             'name' => 'vocationid',
             'type'  => 'Zend\Form\Element\Text',
             'options' => array(
@@ -50,7 +40,7 @@ class HerodisplayForm extends Form
                 )
             )
         ));
-        $this->display(array(
+        $this->add(array(
             'name' => 'raceid',
             'type'  => 'Zend\Form\Element\Text',
             'options' => array(
@@ -60,7 +50,7 @@ class HerodisplayForm extends Form
                 )
             )
         ));
-        $this->display(array(
+        $this->add(array(
             'name' => 'gender',
             'type'  => 'Zend\Form\Element\Radio',
             'options' => array(
@@ -74,7 +64,7 @@ class HerodisplayForm extends Form
                 )
             )
         ));
-        $this->display(array(
+/*        $this->add(array(
             'name' => 'displayhero',
             'attributes' => array(
                 'type'  => 'submit',
@@ -82,5 +72,6 @@ class HerodisplayForm extends Form
                 'class' => 'btn btn-primary'
             ),
         ));
+        */
     }
 }
