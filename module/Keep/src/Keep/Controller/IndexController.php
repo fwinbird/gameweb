@@ -325,45 +325,25 @@ class IndexController extends AbstractActionController
     {
         $this->layout('layout/herodisplay');
 
-        $viewData = array();
+/*        $viewData = array();
         $herodisplayForm = new HerodisplayForm();
-
         $herodisplayForm->setAttribute('action', $this->url()->fromRoute('keep-herodisplay'));
-
+*/
         $request = $this->getRequest();///////GET http://localhost.gameweb/keep/hero/
-//        die($request);
-
+//      die($request);
         if ($request->isGet()) {
             $response = ApiClient::displayHero();
-
-/*            $data = $request->getPost()->toArray();
-            $herodisplayForm->setInputFilter(Hero::getInputFilter());
-            $herodisplayForm->setData($data);
-
-
-            if ($herodisplayForm->isValid()) {
-                $files = $request->getFiles()->toArray();
-                $data = $herodisplayForm->getData();
-                unset($data['repeat_password']);
-                unset($data['csrf']);
-                unset($data['register']);
-//            print_r($data);
-//            die();
-
-
-                if ($response['result'] == true) {
-                    $this->flashMessenger()->displayMessage('Hero created!');
-//                    return $this->redirect()->toRoute('wall', array('username' => $data['username']));
-                }
-           }
-        */
+            print_r( $response);
+            die();
         }
-        $viewData['herodisplayForm'] = $herodisplayForm;
+
+
+/*        $viewData['herodisplayForm'] = $herodisplayForm;
         if($this->flashMessenger()-> hasMessages()){
             $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
         }
         return $viewData;
-
+*/
     }
 
     public function indexAction()

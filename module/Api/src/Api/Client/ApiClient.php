@@ -105,8 +105,8 @@ class ApiClient {
         }
         
         $response = $client->send();
-        print_r($response->getBody());
-        die('');
+//        print_r($response->getBody());
+//        die('');
         if ($response->isSuccess()) {
             return JsonDecoder::decode($response->getBody(), Json::TYPE_ARRAY);
         } else {
