@@ -26,7 +26,7 @@ class ApiClient {
     protected static $endpointAddStep = '/keep/step/add';
     protected static $endpointAddVocation = '/keep/vocation/add';
 
-    protected static $endpointDisplayHero = '/keep/hero/display';
+    protected static $endpointDisplayHero = '/keep/hero/';
 /*
     protected static $endpointWall = '/api/wall/%s';
     protected static $endpointFeeds = '/api/feeds/%s';
@@ -47,11 +47,10 @@ class ApiClient {
         return self::doRequest($url,$data);
     }
 */
-    public static function displayHero($data)
+    public static function displayHero()
     {
-        $url = self::$endpointHost . sprintf(self::$endpointDisplayHero, $data);
-        die($url);
-        return self::doRequest($url);
+         $url = self::$endpointHost . sprintf(self::$endpointDisplayHero, null );
+        return self::doRequest($url,null,Request::METHOD_GET);
     }
 
     public static function addCamp($data)
@@ -93,19 +92,10 @@ class ApiClient {
         
         return self::$client;
     }
-
-    /**
-     * Perform a request to the API
-     *
-     * @param string $url
-     * @param array $postData
-     * @param Client $client
-     * @return Zend\Http\Response
-     * @author Christopher
-     */
-    protected static function doRequest($url, array $postData , $method = Request::METHOD_POST)
+    
+    protected static function doRequest($url, array $postData = null , $method = Request::METHOD_POST)
     {
-        die('die apiclient dorequest');
+//        die('die apiclient dorequest');
         $client = self::getClientInstance();
         $client->setUri($url);
         $client->setMethod($method);
