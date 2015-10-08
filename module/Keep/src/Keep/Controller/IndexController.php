@@ -8,7 +8,14 @@
  */
 
 namespace Keep\Controller;
+
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\Stdlib\Hydrator\ClassMethods;
+use Zend\Navigation\Navigation;
+use Zend\Navigation\Page\AbstractPage;
+use Zend\Paginator\Paginator;
+use Zend\Paginator\Adapter\ArrayAdapter;
+
 use Api\Client\ApiClient;
 use Keep\Forms\HeroaddForm;
 use Keep\Forms\RaceaddForm;
@@ -333,7 +340,24 @@ class IndexController extends AbstractActionController
 //      die($request);
         if ($request->isGet()) {
             $response = ApiClient::displayHero();
-            print_r( $response);
+            if ($response !== FALSE) {
+                $allheros = array();
+                $hydrator = new ClassMethods();
+                foreach($response as $r)
+                {
+                    $allheros[$r['HeroID']] = $hydrator->hydrate($r, new Hero());
+                }
+/*                if ($currentFeedId === null && !empty($feeds)) {
+                    $currentFeedId = reset($feeds)->getId();
+                }
+*/
+            } else {
+                $this->getResponse()->setStatusCode(404);
+                return;
+            }
+
+//            print_r( $response);
+            print_r($allheros);
             die();
         }
 
