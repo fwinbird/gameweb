@@ -330,18 +330,18 @@ class IndexController extends AbstractActionController
 
     public function herodisplayAction()
     {
+        $viewData = array();
         $this->layout('layout/herodisplay');
-
-/*        $viewData = array();
+        $allheros = array();
+/*
         $herodisplayForm = new HerodisplayForm();
         $herodisplayForm->setAttribute('action', $this->url()->fromRoute('keep-herodisplay'));
 */
         $request = $this->getRequest();///////GET http://localhost.gameweb/keep/hero/
-//      die($request);
+
         if ($request->isGet()) {
             $response = ApiClient::displayHero();
             if ($response !== FALSE) {
-                $allheros = array();
                 $hydrator = new ClassMethods();
                 foreach($response as $r)
                 {
@@ -357,17 +357,16 @@ class IndexController extends AbstractActionController
             }
 
 //            print_r( $response);
-            print_r($allheros);
-            die();
+//            print_r($allheros);
+//            die();
         }
 
-
-/*        $viewData['herodisplayForm'] = $herodisplayForm;
-        if($this->flashMessenger()-> hasMessages()){
+        $viewData['allheros'] = $allheros;
+/*          if($this->flashMessenger()-> hasMessages()){
             $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
         }
-        return $viewData;
-*/
+*/        return $viewData;
+
     }
 
     public function indexAction()
