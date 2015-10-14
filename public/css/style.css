@@ -331,3 +331,18 @@ article .lead-info {
 .add-subscription .input-medium {
     width: 134px;
 }
+
+.title-2 li{
+    display: inline;
+
+}
+.item-2{
+    float: left;
+    height:34px;
+    font-size: 24px;
+}
+
+.btn-add
+{
+    float: right;
+}
