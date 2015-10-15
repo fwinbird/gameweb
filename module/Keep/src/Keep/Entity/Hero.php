@@ -19,36 +19,36 @@ class Hero
     protected $createdAt = null;
     protected $updatedAt = null;
 
-    public function setheroId($heroid)
+    public function setHeroID($heroid)
     {
         $this->heroid = (int)$heroid;
     }
 
-    public function setheroname($heroname)
+    public function setHeroname($heroname)
     {
         $this->heroname = $heroname;
     }
 
-    public function setvocationid($vocationid)
+    public function setVocationID($vocationid)
     {
         $this->vocationid = (int)$vocationid;
     }
 
-    public function setracename($racename)
+    public function setRaceID($raceid)
     {
-        $this->racename = $racename;
+        $this->raceid = $raceid;
     }
 
-    public function setgender($gender)
+    public function setGender($gender)
     {
         $this->gender = (int)$gender;
     }
-    public function setcreatedAt($createdAt)
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = new \DateTime($createdAt);
     }
 
-    public function setupdatedAt($updatedAt)
+    public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = new \DateTime($updatedAt);
     }
@@ -79,36 +79,36 @@ class Hero
         }
     }
 */
-    public function getheroId()
+    public function getHeroID()
     {
        return  $this->heroid;
     }
 
-    public function getheroname()
+    public function getHeroname()
     {
         return $this->heroname;
     }
 
-    public function getvocationid()
+    public function getVocationID()
     {
         return $this->vocationid;
     }
 
-    public function getraceid()
+    public function getRaceID()
     {
         return $this->raceid;
     }
 
-    public function getgender()
+    public function getGender()
     {
         return $this->gender;
     }
-    public function getcreatedAt()
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
 
-    public function getupdatedAt()
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }

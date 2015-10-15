@@ -365,7 +365,10 @@ class IndexController extends AbstractActionController
 /*          if($this->flashMessenger()-> hasMessages()){
             $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
         }
-*/        return $viewData;
+*/
+//        print_r($viewData['allheros'] );
+//        die();
+        return $viewData;
 
     }
 

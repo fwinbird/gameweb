@@ -1,8 +1,8 @@
 <?php echo $this->doctype(); ?>
 
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <?php echo $this->headTitle('ZF2 '. $this->translate('My social network'))->setSeparator(' - ')->setAutoEscape(false) ?>
 
     <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
@@ -19,19 +19,39 @@
 
 </head>
 <body>
-    <ul class="title-2">
-    <li class = "item-2">
+    <ul class='title-2'>
+    <li class = 'item-2'>
         后台管理\英雄
     </li>
-    <li class="btn-add">
-        <a class="btn btn-default"   href="/keep/hero/add" role="button">添加</a>
+    <li class='btn-add'>
+        <a class='btn btn-default'   href='/keep/hero/add' role='button'>添加</a>
     </li>
     </ul>
 
+    <table class='table table-bordered'>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>HeroName</th>
+            <th>VocationID</th>
+            <th>RaceID</th>
+            <th>Gender</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope='row'>1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td><?php echo $allheros['1']->getheroname() ?></td>
+        </tr>
 
+        </tbody>
+    </table>
 <!--
 <footer>
-    <div class="container fluid-row">
+    <div class='container fluid-row'>
         <?php echo $this->translate('Welcome to my Social Network | Learn how to create a Social Network with ZF2 &copy; 2015') ?>
     </div>
 </footer>
