@@ -39,12 +39,22 @@
         </tr>
         </thead>
         <tbody>
+        <?php foreach ($this->pagesInRange as $page): ?>
+            <li>
+                <?php if ($page != $this->current): ?>
+                    <a href="<?php echo $this->url($this->route, array('page' => $page) + $this->routeParams); ?>"><?php echo $page; ?></a>
+                <?php else: ?>
+                    <span class="active"><?php echo $page; ?></span>
+                <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+
         <tr>
             <th scope='row'>1</th>
             <td>Mark</td>
             <td>Otto</td>
             <td>@mdo</td>
-            <td><?php echo $allheros['1']->getheroname() ?></td>
+            <td><?php echo $allheros['1']->getHeroname() ?></td>
         </tr>
 
         </tbody>

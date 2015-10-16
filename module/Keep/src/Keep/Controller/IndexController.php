@@ -368,7 +368,19 @@ class IndexController extends AbstractActionController
 */
 //        print_r($viewData['allheros'] );
 //        die();
-        return $viewData;
+//        return $viewData;
+        //////////////////////////////////////////
+//       foreach ($allheros as $key => $record)
+//        {
+//            print_r($allheros[11]);
+//        }
+        for($i=1;$i<=count($allheros);$i++)
+        {
+            print_r($allheros[$i]);
+        }
+
+
+        die('test');
 
     }
 
