@@ -345,7 +345,8 @@ class IndexController extends AbstractActionController
                 $hydrator = new ClassMethods();
                 foreach($response as $r)
                 {
-                    $allheros[$r['HeroID']] = $hydrator->hydrate($r, new Hero());
+                    $allheros[] = $hydrator->hydrate($r, new Hero());
+//                    $allheros[$r['HeroID']] = $hydrator->hydrate($r, new Hero());
                 }
 /*                if ($currentFeedId === null && !empty($feeds)) {
                     $currentFeedId = reset($feeds)->getId();
@@ -366,21 +367,18 @@ class IndexController extends AbstractActionController
             $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
         }
 */
-//        print_r($viewData['allheros'] );
-//        die();
-//        return $viewData;
+        return $viewData;
         //////////////////////////////////////////
 //       foreach ($allheros as $key => $record)
 //        {
 //            print_r($allheros[11]);
 //        }
-        for($i=1;$i<=count($allheros);$i++)
-        {
-            print_r($allheros[$i]);
-        }
 
-
-        die('test');
+//       for($i=1;$i<=count($allheros);$i++,next($allheros))
+//        {
+//            print_r(current($allheros)->getHeroname());
+//        }
+//        die();
 
     }
 
