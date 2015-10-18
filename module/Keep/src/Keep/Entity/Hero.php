@@ -84,7 +84,7 @@ class Hero
        return  $this->heroid;
     }
 
-    public function getHeroname()
+    public function getHeroName()
     {
         return $this->heroname;
     }

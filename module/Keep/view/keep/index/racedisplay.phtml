@@ -21,10 +21,10 @@
 <body>
     <ul class='title-2'>
     <li class = 'item-2'>
-        后台管理\英雄
+        后台管理\种族
     </li>
     <li class='btn-add'>
-        <a class='btn btn-default'   href='/keep/hero/add' role='button'>添加</a>
+        <a class='btn btn-default'   href='/keep/race/add' role='button'>添加</a>
     </li>
     </ul>
 
@@ -32,23 +32,20 @@
         <thead>
         <tr>
             <th>NO.</th>
-            <th>HeroID</th>
-            <th>HeroName</th>
             <th>RaceID</th>
-            <th>VocationID</th>
+            <th>RaceName</th>
+            <th>TextCN</th>
         </tr>
         </thead>
         <tbody>
 
-        <?php for($i=0;$i<count($allheros);$i++){?>
+        <?php for($i=0;$i<count($allraces);$i++){?>
 
             <tr>
                 <th scope='row'><?php echo $i+1; ?></th>
-                <td><?php echo $allheros[$i]->getHeroID(); ?></td>
-                <td><?php echo $allheros[$i]->getHeroname(); ?></td>
-                <td><?php echo $allheros[$i]->getRaceID(); ?></td>
-                <td><?php echo $allheros[$i]->getVocationID(); ?></td>
-
+                <td><?php echo $allraces[$i]->getRaceID(); ?></td>
+                <td><?php echo $allraces[$i]->getRaceName(); ?></td>
+                <td><?php echo $allraces[$i]->getTextCN(); ?></td>
             </tr>
 <?php }?>
 <?php /*   */?>

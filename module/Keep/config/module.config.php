@@ -14,10 +14,6 @@ return array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
                     'route'    => '/keep/hero/add',
-//                    'constraints' => array(
-//                        'username' => '\w+',
-//                        'feed_id' => '\d*',
-//                    ),
                     'defaults' => array(
                         'controller' => 'Keep\Controller\Index',
                         'action' => 'heroadd'
@@ -45,6 +41,7 @@ return array(
                     ),
                 ),
             ),
+            
             'keep-vocationadd' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
@@ -85,6 +82,61 @@ return array(
                     'defaults' => array(
                         'controller' => 'Keep\Controller\Index',
                         'action' => 'skilladd'
+                    ),
+                ),
+            ),
+
+            'keep-racedisplay' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/keep/race[/]',
+                    'defaults' => array(
+                        'controller' => 'Keep\Controller\Index',
+                        'action' => 'racedisplay'
+                    ),
+                ),
+            ),
+
+            'keep-vocationdisplay' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/keep/vocation[/]',
+                    'defaults' => array(
+                        'controller' => 'Keep\Controller\Index',
+                        'action' => 'vocationdisplay'
+                    ),
+                ),
+            ),
+
+            'keep-campdisplay' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/keep/camp[/]',
+                    'defaults' => array(
+                        'controller' => 'Keep\Controller\Index',
+                        'action' => 'campdisplay'
+                    ),
+                ),
+            ),
+
+            'keep-stepdisplay' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/keep/step[/]',
+                    'defaults' => array(
+                        'controller' => 'Keep\Controller\Index',
+                        'action' => 'stepdisplay'
+                    ),
+                ),
+            ),
+
+            'keep-skilldisplay' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/keep/skill[/]',
+                    'defaults' => array(
+                        'controller' => 'Keep\Controller\Index',
+                        'action' => 'skilldisplay'
                     ),
                 ),
             ),

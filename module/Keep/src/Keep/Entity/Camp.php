@@ -22,53 +22,53 @@ class Camp
     protected $createdAt = null;
     protected $updatedAt = null;
 
-    public function setcampId($campid)
+    public function setCampID($campid)
     {
         $this->campid = (int)$campid;
     }
 
-    public function setcampname($campname)
+    public function setCampName($campname)
     {
         $this->campname = $campname;
     }
 
-    public function settextcn($textcn)
+    public function setTextCN($textcn)
     {
         $this->textcn = $textcn;
     }
 
-    public function setcreatedAt($createdAt)
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = new \DateTime($createdAt);
     }
 
-    public function setupdatedAt($updatedAt)
+    public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = new \DateTime($updatedAt);
     }
 
-    public function getcampId()
+    public function getCampID()
     {
         return  $this->campid;
     }
 
-    public function getcampname()
+    public function getCampName()
     {
         return $this->campname;
     }
 
-    public function gettextcn()
+    public function getTextCN()
     {
         return $this->textcn;
     }
 
 
-    public function getcreatedAt()
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
 
-    public function getupdatedAt()
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }

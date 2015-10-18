@@ -27,6 +27,11 @@ class ApiClient {
     protected static $endpointAddVocation = '/keep/vocation/add';
 
     protected static $endpointDisplayHero = '/keep/hero/';
+    protected static $endpointDisplayRace = '/keep/race/';
+    protected static $endpointDisplayVocation = '/keep/vocation/';
+    protected static $endpointDisplayStep = '/keep/step/';
+    protected static $endpointDisplaySkill = '/keep/skill/';
+    protected static $endpointDisplayCamp = '/keep/camp/';
 /*
     protected static $endpointWall = '/api/wall/%s';
     protected static $endpointFeeds = '/api/feeds/%s';
@@ -40,16 +45,35 @@ class ApiClient {
         $url = self::$endpointHost . sprintf(self::$endpointAddHero, $data);
         return self::doRequest($url,$data);
     }
-
-/*    public static function displayHero($data)
-    {
-        $url = self::$endpointHost . sprintf(self::$endpointDisplayHero, $data);
-        return self::doRequest($url,$data);
-    }
-*/
+    
     public static function displayHero()
     {
          $url = self::$endpointHost . sprintf(self::$endpointDisplayHero, null );
+        return self::doRequest($url,null,Request::METHOD_GET);
+    }
+    public static function displayRace()
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointDisplayRace, null );
+        return self::doRequest($url,null,Request::METHOD_GET);
+    }
+    public static function displayCamp()
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointDisplayCamp, null );
+        return self::doRequest($url,null,Request::METHOD_GET);
+    }
+    public static function displayStep()
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointDisplayStep, null );
+        return self::doRequest($url,null,Request::METHOD_GET);
+    }
+    public static function displaySkill()
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointDisplaySkill, null );
+        return self::doRequest($url,null,Request::METHOD_GET);
+    }
+    public static function displayVocation()
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointDisplayVocation, null );
         return self::doRequest($url,null,Request::METHOD_GET);
     }
 

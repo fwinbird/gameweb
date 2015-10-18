@@ -22,53 +22,53 @@ class Vocation
     protected $createdAt = null;
     protected $updatedAt = null;
 
-    public function setvocationId($vocationid)
+    public function setVocationID($vocationid)
     {
         $this->vocationid = (int)$vocationid;
     }
 
-    public function setvocationname($vocationname)
+    public function setVocatioNname($vocationname)
     {
         $this->vocationname = $vocationname;
     }
 
-    public function settextcn($textcn)
+    public function setTextCN($textcn)
     {
         $this->textcn = $textcn;
     }
 
-    public function setcreatedAt($createdAt)
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = new \DateTime($createdAt);
     }
 
-    public function setupdatedAt($updatedAt)
+    public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = new \DateTime($updatedAt);
     }
 
-    public function getvocationId()
+    public function getVocationID()
     {
         return  $this->vocationid;
     }
 
-    public function getvocationname()
+    public function getVocationName()
     {
         return $this->vocationname;
     }
 
-    public function gettextcn()
+    public function getTextCN()
     {
         return $this->textcn;
     }
 
 
-    public function getcreatedAt()
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
 
-    public function getupdatedAt()
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }

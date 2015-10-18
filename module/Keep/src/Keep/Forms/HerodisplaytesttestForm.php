@@ -64,14 +64,5 @@ class HerodisplayForm extends Form
                 )
             )
         ));
-/*        $this->add(array(
-            'name' => 'displayhero',
-            'attributes' => array(
-                'type'  => 'submit',
-                'value' => 'DisplayHero',
-                'class' => 'btn btn-primary'
-            ),
-        ));
-        */
     }
 }

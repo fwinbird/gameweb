@@ -30,7 +30,6 @@ use Keep\Entity\Camp;
 use Keep\Entity\Skill;
 use Keep\Entity\Step;
 
-use Keep\Forms\HerodisplayForm;
 
 use Zend\Http\Request as Request;
 use Zend\Validator\File\Size;
@@ -368,18 +367,29 @@ class IndexController extends AbstractActionController
         }
 */
         return $viewData;
-        //////////////////////////////////////////
-//       foreach ($allheros as $key => $record)
-//        {
-//            print_r($allheros[11]);
-//        }
+    }
+    public function racedisplayAction()
+    {
+        $viewData = array();
+        $this->layout('layout/racedisplay');
+        $allraces = array();
+        $request = $this->getRequest();///////GET http://localhost.gameweb/keep/race/
 
-//       for($i=1;$i<=count($allheros);$i++,next($allheros))
-//        {
-//            print_r(current($allheros)->getHeroname());
-//        }
-//        die();
-
+        if ($request->isGet()) {
+            $response = ApiClient::displayRace();
+            if ($response !== FALSE) {
+                $hydrator = new ClassMethods();
+                foreach($response as $r)
+                {
+                    $allraces[] = $hydrator->hydrate($r, new Race());
+                }
+            } else {
+                $this->getResponse()->setStatusCode(404);
+                return;
+            }
+        }
+        $viewData['allraces'] = $allraces;
+        return $viewData;
     }
 
     public function indexAction()

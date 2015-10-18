@@ -22,53 +22,53 @@ class Step
     protected $createdAt = null;
     protected $updatedAt = null;
 
-    public function setstepId($stepid)
+    public function setStepID($stepid)
     {
         $this->stepid = (int)$stepid;
     }
 
-    public function setstepname($stepname)
+    public function setStepName($stepname)
     {
         $this->stepname = $stepname;
     }
 
-    public function settextcn($textcn)
+    public function setTextCN($textcn)
     {
         $this->textcn = $textcn;
     }
 
-    public function setcreatedAt($createdAt)
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = new \DateTime($createdAt);
     }
 
-    public function setupdatedAt($updatedAt)
+    public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = new \DateTime($updatedAt);
     }
 
-    public function getstepId()
+    public function getStepID()
     {
         return  $this->stepid;
     }
 
-    public function getstepname()
+    public function getStepName()
     {
         return $this->stepname;
     }
 
-    public function gettextcn()
+    public function getTextCN()
     {
         return $this->textcn;
     }
 
 
-    public function getcreatedAt()
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
 
-    public function getupdatedAt()
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }

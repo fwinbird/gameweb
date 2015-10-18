@@ -22,53 +22,53 @@ class Skill
     protected $createdAt = null;
     protected $updatedAt = null;
 
-    public function setskillId($skillid)
+    public function setSkillID($skillid)
     {
         $this->skillid = (int)$skillid;
     }
 
-    public function setskillname($skillname)
+    public function setSkillName($skillname)
     {
         $this->skillname = $skillname;
     }
 
-    public function settextcn($textcn)
+    public function setTextCN($textcn)
     {
         $this->textcn = $textcn;
     }
 
-    public function setcreatedAt($createdAt)
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = new \DateTime($createdAt);
     }
 
-    public function setupdatedAt($updatedAt)
+    public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = new \DateTime($updatedAt);
     }
 
-    public function getskillId()
+    public function getSkillID()
     {
         return  $this->skillid;
     }
 
-    public function getskillname()
+    public function getSkillName()
     {
         return $this->skillname;
     }
 
-    public function gettextcn()
+    public function getTextCN()
     {
         return $this->textcn;
     }
 
 
-    public function getcreatedAt()
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
 
-    public function getupdatedAt()
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }

@@ -22,53 +22,53 @@ class Race
     protected $createdAt = null;
     protected $updatedAt = null;
 
-    public function setraceId($raceid)
+    public function setRaceID($raceid)
     {
         $this->raceid = (int)$raceid;
     }
 
-    public function setracename($racename)
+    public function setRaceName($racename)
     {
         $this->racename = $racename;
     }
 
-    public function settextcn($textcn)
+    public function setTextCN($textcn)
     {
         $this->textcn = $textcn;
     }
 
-    public function setcreatedAt($createdAt)
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = new \DateTime($createdAt);
     }
 
-    public function setupdatedAt($updatedAt)
+    public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = new \DateTime($updatedAt);
     }
 
-    public function getraceId()
+    public function getRaceID()
     {
         return  $this->raceid;
     }
 
-    public function getracename()
+    public function getRaceName()
     {
         return $this->racename;
     }
 
-    public function gettextcn()
+    public function getTextCN()
     {
         return $this->textcn;
     }
 
 
-    public function getcreatedAt()
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
 
-    public function getupdatedAt()
+    public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
