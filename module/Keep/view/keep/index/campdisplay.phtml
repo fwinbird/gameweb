@@ -1,0 +1,65 @@
+<?php echo $this->doctype(); ?>
+
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <?php echo $this->headTitle('ZF2 '. $this->translate('My social network'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+    <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+    <!-- Le styles -->
+    <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+        ->prependStylesheet($this->basePath() . '/css/style.css')
+        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
+
+    <!-- Scripts -->
+    <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+        ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+        ->prependFile($this->basePath() . '/js/jquery.min.js') ?>
+
+</head>
+<body>
+    <ul class='title-2'>
+    <li class = 'item-2'>
+        后台管理\阵营
+    </li>
+    <li class='btn-add'>
+        <a class='btn btn-default'   href='/keep/hero/add' role='button'>添加</a>
+    </li>
+    </ul>
+
+    <table class='table table-bordered'>
+        <thead>
+        <tr>
+            <th>NO.</th>
+            <th>CampID</th>
+            <th>CampName</th>
+            <th>TextCN</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <?php for($i=0;$i<count($allcamps);$i++){?>
+
+            <tr>
+                <th scope='row'><?php echo $i+1; ?></th>
+                <td><?php echo $allcamps[$i]->getCampID(); ?></td>
+                <td><?php echo $allcamps[$i]->getCampName(); ?></td>
+                <td><?php echo $allcamps[$i]->getTextCN(); ?></td>
+
+            </tr>
+<?php }?>
+<?php /*   */?>
+
+        </tbody>
+    </table>
+<!--
+<footer>
+    <div class='container fluid-row'>
+        <?php echo $this->translate('Welcome to my Social Network | Learn how to create a Social Network with ZF2 &copy; 2015') ?>
+    </div>
+</footer>
+-->
+<?php echo $this->inlineScript() ?>
+</body>
+</html>

@@ -43,9 +43,7 @@ class IndexController extends AbstractActionController
 
         $viewData = array();
         $heroaddForm = new HeroaddForm();
-
         $heroaddForm->setAttribute('action', $this->url()->fromRoute('keep-heroadd'));
-
         $request = $this->getRequest();
 
 //        print_r($request);
@@ -55,7 +53,6 @@ class IndexController extends AbstractActionController
             $data = $request->getPost()->toArray();
             $heroaddForm->setInputFilter(Hero::getInputFilter());
             $heroaddForm->setData($data);
-
 
             if ($heroaddForm->isValid()) {
 //                die('web heroadd isvalid');
@@ -118,7 +115,6 @@ class IndexController extends AbstractActionController
                 }
             }
         }
-
         $viewData['heroaddForm'] = $heroaddForm;
         if($this->flashMessenger()-> hasMessages()){
             $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
@@ -137,8 +133,7 @@ class IndexController extends AbstractActionController
         $raceaddForm->setAttribute('action', $this->url()->fromRoute('keep-raceadd'));
 
         $request = $this->getRequest();
-//        print_r($request);
-//        die('request');
+
         if ($request->isPost()) {
 
             $data = $request->getPost()->toArray();
@@ -368,6 +363,7 @@ class IndexController extends AbstractActionController
 */
         return $viewData;
     }
+    
     public function racedisplayAction()
     {
         $viewData = array();
@@ -392,6 +388,102 @@ class IndexController extends AbstractActionController
         return $viewData;
     }
 
+    public function campdisplayAction()
+    {
+        $viewData = array();
+        $this->layout('layout/campdisplay');
+        $allcamps = array();
+        $request = $this->getRequest();///////GET http://localhost.gameweb/keep/camp/
+
+        if ($request->isGet()) {
+            $response = ApiClient::displayCamp();
+            if ($response !== FALSE) {
+                $hydrator = new ClassMethods();
+                foreach($response as $r)
+                {
+                    $allcamps[] = $hydrator->hydrate($r, new Camp());
+                }
+            } else {
+                $this->getResponse()->setStatusCode(404);
+                return;
+            }
+        }
+        $viewData['allcamps'] = $allcamps;
+        return $viewData;
+    }
+    
+    public function stepdisplayAction()
+    {
+        $viewData = array();
+        $this->layout('layout/stepdisplay');
+        $allsteps = array();
+        $request = $this->getRequest();///////GET http://localhost.gameweb/keep/step/
+
+        if ($request->isGet()) {
+            $response = ApiClient::displayStep();
+            if ($response !== FALSE) {
+                $hydrator = new ClassMethods();
+                foreach($response as $r)
+                {
+                    $allsteps[] = $hydrator->hydrate($r, new Step());
+                }
+            } else {
+                $this->getResponse()->setStatusCode(404);
+                return;
+            }
+        }
+        $viewData['allsteps'] = $allsteps;
+        return $viewData;
+    }
+    
+    public function skilldisplayAction()
+    {
+        $viewData = array();
+        $this->layout('layout/skilldisplay');
+        $allskills = array();
+        $request = $this->getRequest();///////GET http://localhost.gameweb/keep/skill/
+
+        if ($request->isGet()) {
+            $response = ApiClient::displaySkill();
+            if ($response !== FALSE) {
+                $hydrator = new ClassMethods();
+                foreach($response as $r)
+                {
+                    $allskills[] = $hydrator->hydrate($r, new Skill());
+                }
+            } else {
+                $this->getResponse()->setStatusCode(404);
+                return;
+            }
+        }
+        $viewData['allskills'] = $allskills;
+        return $viewData;
+    }
+    
+    public function vocationdisplayAction()
+    {
+        $viewData = array();
+        $this->layout('layout/vocationdisplay');
+        $allvocations = array();
+        $request = $this->getRequest();///////GET http://localhost.gameweb/keep/vocation/
+
+        if ($request->isGet()) {
+            $response = ApiClient::displayVocation();
+            if ($response !== FALSE) {
+                $hydrator = new ClassMethods();
+                foreach($response as $r)
+                {
+                    $allvocations[] = $hydrator->hydrate($r, new Vocation());
+                }
+            } else {
+                $this->getResponse()->setStatusCode(404);
+                return;
+            }
+        }
+        $viewData['allvocations'] = $allvocations;
+        return $viewData;
+    }
+    
     public function indexAction()
     {
         die('function indexaction');
