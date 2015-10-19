@@ -32,13 +32,7 @@ class ApiClient {
     protected static $endpointDisplayStep = '/keep/step/';
     protected static $endpointDisplaySkill = '/keep/skill/';
     protected static $endpointDisplayCamp = '/keep/camp/';
-/*
-    protected static $endpointWall = '/api/wall/%s';
-    protected static $endpointFeeds = '/api/feeds/%s';
-    protected static $endpointSpecificFeed = '/api/feeds/%s/%d';
-    protected static $endpointUsers = '/api/users';
-    protected static $endpointGetUser = '/api/users/%s';
-*/
+
 
     public static function addHero($data)
     {
