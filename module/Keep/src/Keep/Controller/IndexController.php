@@ -40,16 +40,13 @@ class IndexController extends AbstractActionController
     public function heroaddAction()
     {
         $this->layout('layout/layout');
-
         $viewData = array();
         $heroaddForm = new HeroaddForm();
         $heroaddForm->setAttribute('action', $this->url()->fromRoute('keep-heroadd'));
         $request = $this->getRequest();
-
 //        print_r($request);
 //        die('request');
         if ($request->isPost()) {
-
             $data = $request->getPost()->toArray();
             $heroaddForm->setInputFilter(Hero::getInputFilter());
             $heroaddForm->setData($data);
@@ -112,6 +109,7 @@ class IndexController extends AbstractActionController
                 if ($response['result'] == true) {
                     $this->flashMessenger()->addMessage('Hero created!');
 //                    return $this->redirect()->toRoute('wall', array('username' => $data['username']));
+                    return $this->redirect()->toRoute('keep-herodisplay');
                 }
             }
         }
@@ -120,41 +118,33 @@ class IndexController extends AbstractActionController
             $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
         }
         return $viewData;
-
     }
 
     public function raceaddAction()
     {
 //        die('raceaddAction');
         $this->layout('layout/layout');
-
         $viewData = array();
         $raceaddForm = new raceaddForm();
         $raceaddForm->setAttribute('action', $this->url()->fromRoute('keep-raceadd'));
-
         $request = $this->getRequest();
 
         if ($request->isPost()) {
-
             $data = $request->getPost()->toArray();
             $raceaddForm->setInputFilter(race::getInputFilter());
             $raceaddForm->setData($data);
 
             if ($raceaddForm->isValid()) {
-//                die('web raceadd isvalid');
                 $files = $request->getFiles()->toArray();
                 $data = $raceaddForm->getData();
-//            print_r($data);
-//            die();
                 $response = ApiClient::addrace($data);
 
                 if ($response['result'] == true) {
                     $this->flashMessenger()->addMessage('Race created!');
-//                    return $this->redirect()->toRoute('wall', array('username' => $data['username']));
+                    return $this->redirect()->toRoute('keep-racedisplay');
                 }
             }
         }
-
         $viewData['raceaddForm'] = $raceaddForm;
         if($this->flashMessenger()-> hasMessages()){
             $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
@@ -165,72 +155,54 @@ class IndexController extends AbstractActionController
     public function campaddAction(){
 //        die('campaddAction');
         $this->layout('layout/layout');
-
         $viewData = array();
         $campaddForm = new campaddForm();
         $campaddForm->setAttribute('action', $this->url()->fromRoute('keep-campadd'));
-
         $request = $this->getRequest();
-//        print_r($request);
-//        die('request');
-        if ($request->isPost()) {
 
+        if ($request->isPost()) {
             $data = $request->getPost()->toArray();
             $campaddForm->setInputFilter(camp::getInputFilter());
             $campaddForm->setData($data);
-
             if ($campaddForm->isValid()) {
-//                die('web campadd isvalid');
                 $files = $request->getFiles()->toArray();
                 $data = $campaddForm->getData();
-//            print_r($data);
-//            die();
                 $response = ApiClient::addcamp($data);
 
                 if ($response['result'] == true) {
                     $this->flashMessenger()->addMessage('Camp created!');
-//                    return $this->redirect()->toRoute('wall', array('username' => $data['username']));
+                    return $this->redirect()->toRoute('keep-campdisplay');
                 }
             }
         }
-
         $viewData['campaddForm'] = $campaddForm;
         if($this->flashMessenger()-> hasMessages()){
             $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
         }
         return $viewData;
-
     }
 
     public function vocationaddAction(){
 //        die('vocationaddAction');
         $this->layout('layout/layout');
-
         $viewData = array();
         $vocationaddForm = new vocationaddForm();
         $vocationaddForm->setAttribute('action', $this->url()->fromRoute('keep-vocationadd'));
-
         $request = $this->getRequest();
-//        print_r($request);
-//        die('request');
-        if ($request->isPost()) {
 
+        if ($request->isPost()) {
             $data = $request->getPost()->toArray();
             $vocationaddForm->setInputFilter(vocation::getInputFilter());
             $vocationaddForm->setData($data);
 
             if ($vocationaddForm->isValid()) {
-//                die('web vocationadd isvalid');
                 $files = $request->getFiles()->toArray();
                 $data = $vocationaddForm->getData();
-//            print_r($data);
-//            die();
                 $response = ApiClient::addvocation($data);
 
                 if ($response['result'] == true) {
                     $this->flashMessenger()->addMessage('Vocation created!');
-//                    return $this->redirect()->toRoute('wall', array('username' => $data['username']));
-                }
+                    return $this->redirect()->toRoute('keep-vocationdisplay');                }
             }
         }
 
@@ -239,37 +211,28 @@ class IndexController extends AbstractActionController
             $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
         }
         return $viewData;
-
     }
 
     public function stepaddAction(){
 //        die('stepaddAction');
         $this->layout('layout/layout');
-
         $viewData = array();
         $stepaddForm = new stepaddForm();
         $stepaddForm->setAttribute('action', $this->url()->fromRoute('keep-stepadd'));
-
         $request = $this->getRequest();
-//        print_r($request);
-//        die('request');
-        if ($request->isPost()) {
 
+        if ($request->isPost()) {
             $data = $request->getPost()->toArray();
             $stepaddForm->setInputFilter(step::getInputFilter());
             $stepaddForm->setData($data);
 
             if ($stepaddForm->isValid()) {
-//                die('web stepadd isvalid');
                 $files = $request->getFiles()->toArray();
                 $data = $stepaddForm->getData();
-//            print_r($data);
-//            die();
                 $response = ApiClient::addstep($data);
-
                 if ($response['result'] == true) {
                     $this->flashMessenger()->addMessage('Step created!');
-//                    return $this->redirect()->toRoute('wall', array('username' => $data['username']));
+                    return $this->redirect()->toRoute('keep-stepdisplay');
                 }
             }
         }
@@ -279,47 +242,36 @@ class IndexController extends AbstractActionController
             $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
         }
         return $viewData;
-
     }
 
     public function skilladdAction(){
 //        die('skilladdAction');
         $this->layout('layout/layout');
-
         $viewData = array();
         $skilladdForm = new skilladdForm();
         $skilladdForm->setAttribute('action', $this->url()->fromRoute('keep-skilladd'));
-
         $request = $this->getRequest();
-//        print_r($request);
-//        die('request');
-        if ($request->isPost()) {
 
+        if ($request->isPost()) {
             $data = $request->getPost()->toArray();
             $skilladdForm->setInputFilter(skill::getInputFilter());
             $skilladdForm->setData($data);
 
             if ($skilladdForm->isValid()) {
-//                die('web skilladd isvalid');
                 $files = $request->getFiles()->toArray();
                 $data = $skilladdForm->getData();
-//            print_r($data);
-//            die();
                 $response = ApiClient::addskill($data);
 
                 if ($response['result'] == true) {
                     $this->flashMessenger()->addMessage('Skill created!');
-//                    return $this->redirect()->toRoute('wall', array('username' => $data['username']));
-                }
+                    return $this->redirect()->toRoute('keep-skilldisplay');                }
             }
         }
-
         $viewData['skilladdForm'] = $skilladdForm;
         if($this->flashMessenger()-> hasMessages()){
             $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
         }
         return $viewData;
-
     }
 
     public function herodisplayAction()
