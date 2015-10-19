@@ -39,7 +39,7 @@ class IndexController extends AbstractActionController
 {
     public function heroaddAction()
     {
-        $this->layout('layout/heroadd');
+        $this->layout('layout/layout');
 
         $viewData = array();
         $heroaddForm = new HeroaddForm();
@@ -126,7 +126,7 @@ class IndexController extends AbstractActionController
     public function raceaddAction()
     {
 //        die('raceaddAction');
-        $this->layout('layout/raceadd');
+        $this->layout('layout/layout');
 
         $viewData = array();
         $raceaddForm = new raceaddForm();
@@ -164,7 +164,7 @@ class IndexController extends AbstractActionController
     
     public function campaddAction(){
 //        die('campaddAction');
-        $this->layout('layout/campadd');
+        $this->layout('layout/layout');
 
         $viewData = array();
         $campaddForm = new campaddForm();
@@ -204,7 +204,7 @@ class IndexController extends AbstractActionController
 
     public function vocationaddAction(){
 //        die('vocationaddAction');
-        $this->layout('layout/vocationadd');
+        $this->layout('layout/layout');
 
         $viewData = array();
         $vocationaddForm = new vocationaddForm();
@@ -244,7 +244,7 @@ class IndexController extends AbstractActionController
 
     public function stepaddAction(){
 //        die('stepaddAction');
-        $this->layout('layout/stepadd');
+        $this->layout('layout/layout');
 
         $viewData = array();
         $stepaddForm = new stepaddForm();
@@ -284,7 +284,7 @@ class IndexController extends AbstractActionController
 
     public function skilladdAction(){
 //        die('skilladdAction');
-        $this->layout('layout/skilladd');
+        $this->layout('layout/layout');
 
         $viewData = array();
         $skilladdForm = new skilladdForm();
@@ -325,7 +325,7 @@ class IndexController extends AbstractActionController
     public function herodisplayAction()
     {
         $viewData = array();
-        $this->layout('layout/herodisplay');
+        $this->layout('layout/layout');
         $allheros = array();
 /*
         $herodisplayForm = new HerodisplayForm();
@@ -367,7 +367,7 @@ class IndexController extends AbstractActionController
     public function racedisplayAction()
     {
         $viewData = array();
-        $this->layout('layout/racedisplay');
+        $this->layout('layout/layout');
         $allraces = array();
         $request = $this->getRequest();///////GET http://localhost.gameweb/keep/race/
 
@@ -391,7 +391,7 @@ class IndexController extends AbstractActionController
     public function campdisplayAction()
     {
         $viewData = array();
-        $this->layout('layout/campdisplay');
+        $this->layout('layout/layout');
         $allcamps = array();
         $request = $this->getRequest();///////GET http://localhost.gameweb/keep/camp/
 
@@ -415,7 +415,7 @@ class IndexController extends AbstractActionController
     public function stepdisplayAction()
     {
         $viewData = array();
-        $this->layout('layout/stepdisplay');
+        $this->layout('layout/layout');
         $allsteps = array();
         $request = $this->getRequest();///////GET http://localhost.gameweb/keep/step/
 
@@ -439,7 +439,7 @@ class IndexController extends AbstractActionController
     public function skilldisplayAction()
     {
         $viewData = array();
-        $this->layout('layout/skilldisplay');
+        $this->layout('layout/layout');
         $allskills = array();
         $request = $this->getRequest();///////GET http://localhost.gameweb/keep/skill/
 
@@ -463,7 +463,7 @@ class IndexController extends AbstractActionController
     public function vocationdisplayAction()
     {
         $viewData = array();
-        $this->layout('layout/vocationdisplay');
+        $this->layout('layout/layout');
         $allvocations = array();
         $request = $this->getRequest();///////GET http://localhost.gameweb/keep/vocation/
 
