@@ -14,6 +14,17 @@ return array(
                 ),
             ),
 
+            'gameuser-register' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/gameuser/register[/]',
+                    'defaults' => array(
+                        'controller' => 'Gameuser\Controller\Index',
+                        'action'     => 'register',
+                    ),
+                ),
+            ),
+
         ),
     ),
 

@@ -11,8 +11,13 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-//        die('indexAction');
-//        return new ViewModel();
+//        die('function indexAction');
         return $this->layout('layout/index');
+    }
+
+    public function registerAction()
+    {
+        die('function register');
+        return;
     }
 }
