@@ -18,6 +18,7 @@ class IndexController extends AbstractActionController
     public function registerAction()
     {
         die('function register');
+        $this->layout('layout/index');
         return;
     }
 }
