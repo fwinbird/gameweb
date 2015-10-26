@@ -5,7 +5,6 @@ return array(
         'Api',
         'Keep',
         'Home',
-        'Gameuser',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(
