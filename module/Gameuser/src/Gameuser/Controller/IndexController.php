@@ -1,6 +1,6 @@
 <?php
 
-namespace Home\Controller;
+namespace Gameuser\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Api\Client\ApiClient;
 use Zend\Http\Request as Request;
@@ -11,8 +11,14 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-//        die('indexAction');
-//        return new ViewModel();
+//        die('function indexAction');
         $this->layout('layout/index');
+    }
+
+    public function registerAction()
+    {
+//        die('function register');
+        $this->layout('layout/index');
+//        return;
     }
 }

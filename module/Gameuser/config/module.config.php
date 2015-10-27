@@ -3,13 +3,24 @@
 return array(
     'router' => array(
         'routes' => array(
-            'home' => array(
+            'gameuser' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/',
+                    'route'    => '/gameuser[/]',
                     'defaults' => array(
-                        'controller' => 'Home\Controller\Index',
+                        'controller' => 'Gameuser\Controller\Index',
                         'action'     => 'index',
+                    ),
+                ),
+            ),
+
+            'gameuser-register' => array(
+                'type' => 'Zend\Mvc\Router\Http\Segment',
+                'options' => array(
+                    'route'    => '/gameuser/register[/]',
+                    'defaults' => array(
+                        'controller' => 'Gameuser\Controller\Index',
+                        'action'     => 'register',
                     ),
                 ),
             ),
@@ -19,7 +30,7 @@ return array(
 
     'controllers' => array(
         'invokables' => array(
-            'Home\Controller\Index' => 'Home\Controller\IndexController'
+            'Gameuser\Controller\Index' => 'Gameuser\Controller\IndexController'
         ),
     ),
 
@@ -30,6 +41,7 @@ return array(
         'template_map' => array(
             'layout/index'	=> __DIR__ . '/../../Common/view/layout/index.phtml',
             'layout/layout'	=> __DIR__ . '/../../Common/view/layout/layout.phtml',
+            'layout/register'	=> __DIR__ . '/../../Common/view/layout/register.phtml',
 //            'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
