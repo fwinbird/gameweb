@@ -33,6 +33,14 @@ class ApiClient {
     protected static $endpointDisplaySkill = '/keep/skill/';
     protected static $endpointDisplayCamp = '/keep/camp/';
 
+    protected static $endpointRegGameuser = '/gameuser/register/';
+
+    public static function registerGameuser($data)
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointRegGameuser, $data);
+        die($url);
+        return self::doRequest($url,$data);
+    }
 
     public static function addHero($data)
     {
