@@ -36,26 +36,20 @@ class IndexController extends AbstractActionController
                 unset($data['repeat_password']);
                 unset($data['csrf']);
                 unset($data['register']);
-
                 $response = ApiClient::registerGameuser($data);//////////////////////
-//                print_r($data);
-//                die('after apiclient');
+
                 if ($response['result'] == true) {
                     $this->flashMessenger()->addMessage('Gameuser created!');
-                    die('true');
-//                    return $this->redirect()->toRoute('wall', array('username' => $data['username']));
+//                    return $this->redirect()->toRoute('gameuser-register');
                 }
                 else {
-                    $this->flashMessenger()->addMessage('Gameuser created!');
-                    die('false');
+                    $this->flashMessenger()->addMessage('Gameuser not created!');
+//                    return $this->redirect()->toRoute('gameuser-register');
                 }
             }
         }
 
         $viewData['registerForm'] = $registerForm;
-        $viewData['dataddd']='adddd';
-
         return $viewData;
-//        return;
     }
 }

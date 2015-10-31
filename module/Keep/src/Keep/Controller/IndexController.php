@@ -202,7 +202,8 @@ class IndexController extends AbstractActionController
 
                 if ($response['result'] == true) {
                     $this->flashMessenger()->addMessage('Vocation created!');
-                    return $this->redirect()->toRoute('keep-vocationdisplay');                }
+                    return $this->redirect()->toRoute('keep-vocationdisplay');
+                }
             }
         }
 
