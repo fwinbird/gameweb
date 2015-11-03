@@ -13,7 +13,7 @@ return array(
             'keep-heroadd' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/keep/hero/add',
+                    'route'    => '/keep/hero/add[/]',
                     'defaults' => array(
                         'controller' => 'Keep\Controller\Index',
                         'action' => 'heroadd'
@@ -34,7 +34,7 @@ return array(
             'keep-raceadd' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/keep/race/add',
+                    'route'    => '/keep/race/add[/]',
                     'defaults' => array(
                         'controller' => 'Keep\Controller\Index',
                         'action' => 'raceadd'
@@ -45,7 +45,7 @@ return array(
             'keep-vocationadd' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/keep/vocation/add',
+                    'route'    => '/keep/vocation/add[/]',
                     'defaults' => array(
                         'controller' => 'Keep\Controller\Index',
                         'action' => 'vocationadd'
@@ -56,7 +56,7 @@ return array(
             'keep-campadd' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/keep/camp/add',
+                    'route'    => '/keep/camp/add[/]',
                     'defaults' => array(
                         'controller' => 'Keep\Controller\Index',
                         'action' => 'campadd'
@@ -67,7 +67,7 @@ return array(
             'keep-stepadd' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/keep/step/add',
+                    'route'    => '/keep/step/add[/]',
                     'defaults' => array(
                         'controller' => 'Keep\Controller\Index',
                         'action' => 'stepadd'
@@ -78,7 +78,7 @@ return array(
             'keep-skilladd' => array(
                 'type' => 'Zend\Mvc\Router\Http\Segment',
                 'options' => array(
-                    'route'    => '/keep/skill/add',
+                    'route'    => '/keep/skill/add[/]',
                     'defaults' => array(
                         'controller' => 'Keep\Controller\Index',
                         'action' => 'skilladd'

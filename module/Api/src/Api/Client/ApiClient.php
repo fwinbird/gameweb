@@ -17,14 +17,14 @@ class ApiClient {
 
     protected static $client = null;
 
-//    protected static $endpointHost ='http://api.card.shaguangyu.fr/';
+//    protected static $endpointHost ='http://api.card.shaguangyu.fr';
     protected static $endpointHost = 'http://localhost.gamehome';
-    protected static $endpointAddHero = '/keep/hero/add';
-    protected static $endpointAddCamp = '/keep/camp/add';
-    protected static $endpointAddRace = '/keep/race/add';
-    protected static $endpointAddSkill = '/keep/skill/add';
-    protected static $endpointAddStep = '/keep/step/add';
-    protected static $endpointAddVocation = '/keep/vocation/add';
+    protected static $endpointAddHero = '/keep/hero/add/';
+    protected static $endpointAddCamp = '/keep/camp/add/';
+    protected static $endpointAddRace = '/keep/race/add/';
+    protected static $endpointAddSkill = '/keep/skill/add/';
+    protected static $endpointAddStep = '/keep/step/add/';
+    protected static $endpointAddVocation = '/keep/vocation/add/';
 
     protected static $endpointDisplayHero = '/keep/hero/';
     protected static $endpointDisplayRace = '/keep/race/';
