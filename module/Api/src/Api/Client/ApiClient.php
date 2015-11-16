@@ -34,6 +34,19 @@ class ApiClient {
     protected static $endpointDisplayCamp = '/keep/camp/';
 
     protected static $endpointRegGameuser = '/keep/gameuser/register/';
+    protected static $endpointGetVocationNames = '/keep/vocation/getnames/';
+    protected static $endpointGetRaceNames = '/keep/race/getnames/';
+
+    public static function getVocationNames()
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointGetVocationNames, null);
+        return self::doRequest($url,null);
+    }
+    public static function getRaceNames($data)
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointGetRaceNames, null);
+        return self::doRequest($url,null);
+    }
 
     public static function registerGameuser($data)
     {

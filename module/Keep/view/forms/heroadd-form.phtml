@@ -1,18 +1,6 @@
 <?php $form = $this->form; ?>
 <?php $form->prepare(); ?>
 <?php echo $this->form()->openTag($form) ?>
-<!--<div class="control-group <?php echo count($form->get('heroname')->getMessages()) > 0 ? 'error' : '' ?>">
-    <?php echo $this->formLabel($form->get('heroname')); ?>
-    <div class="controls">
-        <?php echo $this->formElement($form->get('heroname')); ?>
-        <?php echo $this->formElementErrors()
-                ->setMessageOpenFormat('<div class="help-inline">')
-                ->setMessageSeparatorString('</div><div class="help-inline">')
-                ->setMessageCloseString('</div>')
-                ->render($form->get('heroname')); ?>
-    </div>
-</div>
--->
     <div class="control-group <?php echo count($form->get('heroname')->getMessages()) > 0 ? 'error' : '' ?>">
         <?php echo $this->formLabel($form->get('heroname')); ?>
         <div class="controls">
@@ -20,7 +8,7 @@
             <?php echo $this->formElementErrors($form->get('heroname')) ?>
         </div>
     </div>
-
+<?php /*
 <div class="control-group <?php echo count($form->get('vocationid')->getMessages()) > 0 ? 'error' : '' ?>">
     <?php echo $this->formLabel($form->get('vocationid')); ?>
     <div class="controls">
@@ -28,6 +16,18 @@
         <?php echo $this->formElementErrors($form->get('vocationid')) ?>
     </div>
 </div>
+*/?>
+    <div class="btn-group" data-toggle="buttons-radio">
+        <button type="button" class="btn btn-primary">Left1</button>
+        <button type="button" class="btn btn-primary">Middle1</button>
+        <button type="button" class="btn btn-primary">Right1</button>
+        <button type="button" class="btn btn-primary">Left2</button>
+        <button type="button" class="btn btn-primary">Middle2</button>
+        <button type="button" class="btn btn-primary">Right2</button>
+        <button type="button" class="btn btn-primary">Left3</button>
+        <button type="button" class="btn btn-primary">Middle3</button>
+        <button type="button" class="btn btn-primary">Right3</button>
+    </div>
 
     <div class="control-group <?php echo count($form->get('raceid')->getMessages()) > 0 ? 'error' : '' ?>">
         <?php echo $this->formLabel($form->get('raceid')); ?>
