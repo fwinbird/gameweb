@@ -19,15 +19,21 @@
 </div>
 */?>
     <div class="btn-group" data-toggle="buttons-radio">
-        <button type="button" class="btn btn-primary"><?php echo $vocationnames[0]; ?></button>
-        <button type="button" class="btn btn-primary">Middle1</button>
-        <button type="button" class="btn btn-primary">Right1</button>
-        <button type="button" class="btn btn-primary">Left2</button>
-        <button type="button" class="btn btn-primary">Middle2</button>
-        <button type="button" class="btn btn-primary">Right2</button>
-        <button type="button" class="btn btn-primary">Left3</button>
-        <button type="button" class="btn btn-primary">Middle3</button>
-        <button type="button" class="btn btn-primary">Right3</button>
+        <?php for($i=0,$count=11;$i<$count/3;$i++){?>
+
+        <div>
+            <?php if(($i*3+0)<$count) {?>
+                <button type="button" class="btn btn-primary"><?php print_r('vocationname');echo $i*3+0; ?></button>
+            <?php }?>
+            <?php if(($i*3+1)<$count) {?>
+                <button type="button" class="btn btn-primary"><?php print_r('vocationname');echo $i*3+1; ?></button>
+            <?php }?>
+            <?php if(($i*3+2)<$count) {?>
+                <button type="button" class="btn btn-primary"><?php print_r('vocationname');echo $i*3+2; ?></button>
+            <?php }?>
+        </div>
+
+        <?php }?>
     </div>
 
     <div class="control-group <?php echo count($form->get('raceid')->getMessages()) > 0 ? 'error' : '' ?>">
