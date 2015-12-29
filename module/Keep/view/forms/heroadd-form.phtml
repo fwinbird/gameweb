@@ -43,6 +43,25 @@
             <?php echo $this->formElementErrors($form->get('raceid')); ?>
         </div>
     </div>
+
+    <div class="btn-group" data-toggle="buttons-radio">
+        <?php for($i=0,$count=11;$i<$count/3;$i++){?>
+
+            <div>
+                <?php if(($i*3+0)<$count) {?>
+                    <button type="button" class="btn btn-primary"><?php print_r('racename');echo $i*3+0; ?></button>
+                <?php }?>
+                <?php if(($i*3+1)<$count) {?>
+                    <button type="button" class="btn btn-primary"><?php print_r('racename');echo $i*3+1; ?></button>
+                <?php }?>
+                <?php if(($i*3+2)<$count) {?>
+                    <button type="button" class="btn btn-primary"><?php print_r('racename');echo $i*3+2; ?></button>
+                <?php }?>
+            </div>
+
+        <?php }?>
+    </div>
+
 <div class="control-group <?php echo count($form->get('gender')->getMessages()) > 0 ? 'error' : '' ?>">
     <label class="control-label">Gender</label>
     <div class="controls">

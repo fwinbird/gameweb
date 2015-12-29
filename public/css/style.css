@@ -345,3 +345,8 @@ article .lead-info {
 {
     float: right;
 }
+
+.btn-primary
+{
+    width:200px;
+}
