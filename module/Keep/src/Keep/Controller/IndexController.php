@@ -41,15 +41,17 @@ class IndexController extends AbstractActionController
     {
         $this->layout('layout/layout');
         $vocationnames = ApiClient::getVocationNames();
-        $racenames = ApiClient::getRaceNames();
-        print_r('faddffdad');
-        die();
+
+//        $racenames = ApiClient::getRaceNames();
+        $racenames=array('racename1中文1','racename2中文2',);
+//        print_r($vocationnames);
+//        print_r($racenames);
+//        die();
         $viewData = array();
         $heroaddForm = new HeroaddForm();
         $heroaddForm->setAttribute('action', $this->url()->fromRoute('keep-heroadd'));
         $request = $this->getRequest();
-//        print_r($request);
-//        die('request');
+
         if ($request->isPost()) {
             $data = $request->getPost()->toArray();
             $heroaddForm->setInputFilter(Hero::getInputFilter());
@@ -59,10 +61,6 @@ class IndexController extends AbstractActionController
 //                die('web heroadd isvalid');
                 $files = $request->getFiles()->toArray();
                 $data = $heroaddForm->getData();
-
-//                unset($data['repeat_password']);
-//                unset($data['csrf']);
-//                unset($data['register']);
 //            print_r($data);
 //            die();
                 $response = ApiClient::addHero($data);
@@ -75,6 +73,8 @@ class IndexController extends AbstractActionController
             }
         }
         $viewData['heroaddForm'] = $heroaddForm;
+        $viewData['vocationnames'] = $vocationnames;
+
         if($this->flashMessenger()-> hasMessages()){
             $viewData['flashMessages'] = $this->flashMessenger()->getMessages();
         }
@@ -264,10 +264,6 @@ class IndexController extends AbstractActionController
                 $this->getResponse()->setStatusCode(404);
                 return;
             }
-
-//            print_r( $response);
-//            print_r($allheros);
-//            die();
         }
 
         $viewData['allheros'] = $allheros;

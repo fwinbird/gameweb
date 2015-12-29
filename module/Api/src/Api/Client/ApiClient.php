@@ -42,7 +42,7 @@ class ApiClient {
         $url = self::$endpointHost . sprintf(self::$endpointGetVocationNames, null);
         return self::doRequest($url,null);
     }
-    public static function getRaceNames($data)
+    public static function getRaceNames()
     {
         $url = self::$endpointHost . sprintf(self::$endpointGetRaceNames, null);
         return self::doRequest($url,null);
