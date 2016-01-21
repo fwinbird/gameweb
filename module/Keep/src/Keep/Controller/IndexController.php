@@ -41,10 +41,8 @@ class IndexController extends AbstractActionController
     {
         $this->layout('layout/layout');
         $vocationnames = ApiClient::getVocationNames();
-
-
-//        $racenames = ApiClient::getRaceNames();
-        $racenames=array('racename1中文1','racename2中文2',);
+        $racenames = ApiClient::getRaceNames();
+//        print_r($racenames);
 //        die();
         $viewData = array();
         $heroaddForm = new HeroaddForm();
@@ -74,9 +72,6 @@ class IndexController extends AbstractActionController
         $viewData['heroaddForm'] = $heroaddForm;
         $viewData['vocationnames'] = $vocationnames;
         $viewData['racenames'] = $racenames;
-
-//        print_r( $viewData);
-//        die();
 
         if($this->flashMessenger()-> hasMessages()){
             $viewData['flashMessages'] = $this->flashMessenger()->getMessages();

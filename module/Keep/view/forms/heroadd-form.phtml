@@ -9,6 +9,8 @@
             <?php echo $this->formElementErrors($form->get('heroname')) ?>
         </div>
     </div>
+
+
 <?php /*
 <div class="control-group <?php echo count($form->get('vocationid')->getMessages()) > 0 ? 'error' : '' ?>">
     <?php echo $this->formLabel($form->get('vocationid')); ?>
@@ -21,7 +23,6 @@
     <div class="btn-group" data-toggle="buttons-radio">
 
         <?php for($i=0,$count=count($vname);$i<$count/3;$i++){?>
-
         <div>
             <?php if(($i*3+0)<$count) {?>
                 <button type="button" class="btn btn-primary"><?php print_r($vname[3*($i)]); ?></button>
@@ -46,17 +47,17 @@
     </div>
 
     <div class="btn-group" data-toggle="buttons-radio">
-        <?php for($i=0,$count=11;$i<$count/3;$i++){?>
+        <?php for($i=0,$count=count($rname);$i<$count/3;$i++){?>
 
             <div>
                 <?php if(($i*3+0)<$count) {?>
-                    <button type="button" class="btn btn-primary"><?php print_r('racename');echo $i*3+0; ?></button>
+                    <button type="button" class="btn btn-primary"><?php print_r($rname[3*($i)]); ?></button>
                 <?php }?>
                 <?php if(($i*3+1)<$count) {?>
-                    <button type="button" class="btn btn-primary"><?php print_r('racename');echo $i*3+1; ?></button>
+                    <button type="button" class="btn btn-primary"><?php print_r($rname[3*($i)+1]); ?></button>
                 <?php }?>
                 <?php if(($i*3+2)<$count) {?>
-                    <button type="button" class="btn btn-primary"><?php print_r('racename');echo $i*3+2; ?></button>
+                    <button type="button" class="btn btn-primary"><?php print_r($rname[3*($i)+2]); ?></button>
                 <?php }?>
             </div>
 
