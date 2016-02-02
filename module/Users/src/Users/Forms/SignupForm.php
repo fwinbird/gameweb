@@ -1,81 +1,58 @@
 <?php
-namespace Keep\Forms;
+namespace Users\Forms;
 
 use Zend\Form\Element;
 use Zend\Form\Form;
 
-class HeroaddForm extends Form
+class SignupForm extends Form
 {
     public function __construct($name = null)
     {
-        parent::__construct('keep-heroadd');
+        parent::__construct('users-signup');
         
         $this->setAttribute('method', 'post');
         $this->setAttribute('class', 'well form-horizontal');
         
-/*        $this->add(array(
-            'name' => 'heroid',
+        $this->add(array(
+            'name' => 'username',
             'type'  => 'Zend\Form\Element\Text',
             'options' => array(
-                'label' => 'HeroId',
+                'label' => 'Username',
                 'label_attributes' => array(
                     'class' => 'control-label'
                 )
             )
         ));
-*/        $this->add(array(
-            'name' => 'heroname',
+        $this->add(array(
+            'name' => 'email',
             'type'  => 'Zend\Form\Element\Text',
             'options' => array(
-                'label' => 'HeroName',
+                'label' => 'Email',
                 'label_attributes' => array(
                     'class' => 'control-label'
                 )
             )
         ));
         $this->add(array(
-            'name' => 'vocationname',
-            'type'  => 'Zend\Form\Element\Radio',
+            'name' => 'password',
+            'type'  => 'Zend\Form\Element\Password',
             'options' => array(
-                'label' => 'VocationName',
+                'label' => 'Password',
                 'label_attributes' => array(
                     'class' => 'control-label'
                 )
             )
         ));
         $this->add(array(
-            'name' => 'raceid',
-            'type'  => 'Zend\Form\Element\Text',
+            'name' => 'repeat_password',
+            'type'  => 'Zend\Form\Element\Password',
             'options' => array(
-                'label' => 'RaceId',
+                'label' => 'Repeat password',
                 'label_attributes' => array(
                     'class' => 'control-label'
                 )
             )
         ));
-        $this->add(array(
-            'name' => 'gender',
-            'type'  => 'Zend\Form\Element\Radio',
-            'options' => array(
-                'label' => 'Gender',
-                'label_attributes' => array(
-                    'class' => 'radio'
-                ),
-                'value_options' => array(
-                    0 => '女人',
-                    1 => '男人'
-                )
-            )
-        ));
-        $this->add(array(
-            'name' => 'addhero',
-            'attributes' => array(
-                'type'  => 'submit',
-                'value' => 'AddHero',
-                'class' => 'btn btn-primary'
-            ),
-        ));
-        /*
         $this->add(array(
             'name' => 'avatar',
             'type'  => 'Zend\Form\Element\File',
@@ -126,6 +103,21 @@ class HeroaddForm extends Form
                 )
             )
         ));
+        $this->add(array(
+            'name' => 'gender',
+            'type'  => 'Zend\Form\Element\Radio',
+            'options' => array(
+                'label' => 'Gender',
+                'label_attributes' => array(
+                    'class' => 'radio'
+                ),
+                'value_options' => array(
+                    0 => 'Female',
+                    1 => 'Male'
+                )
+            )
+        ));
+        
         $this->add(new Element\Csrf('csrf'));
         $this->add(array(
             'name' => 'register',
@@ -135,6 +127,5 @@ class HeroaddForm extends Form
                 'class' => 'btn btn-primary'
             ),
         ));
-        */
     }
 }

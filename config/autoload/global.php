@@ -19,6 +19,15 @@ return array(
                 'label' => 'Keep',
                 'route' => '/',
             ),
+            array(
+                'label' => 'Logout',
+                'route' => 'users-logout',
+                'resource' => 'users-logout'
+            ),
+            array(
+                'label' => 'Login',
+                'route' => 'users-login',
+                'resource' => 'users-login'
 //            array(
 //                'label' => 'Feeds',
 //                'route' => 'feeds',
@@ -31,4 +40,5 @@ return array(
             'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
         ),
     ),
+    )
 );

@@ -6,6 +6,7 @@ return array(
         'Keep',
         'Home',
         'Gameuser',
+        'Users',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(

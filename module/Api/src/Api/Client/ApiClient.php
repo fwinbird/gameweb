@@ -37,6 +37,14 @@ class ApiClient {
     protected static $endpointGetVocationNames = '/keep/vocation/getnames/';
     protected static $endpointGetRaceNames = '/keep/race/getnames/';
 
+    protected static $endpointUserLogin = '/api/user/login/';
+
+    public static function authenticate($postData)
+    {
+        $url = self::$endpointHost . sprintf(self::$endpointUserLogin, null);
+        return self::doRequest($url,$postData,Request::METHOD_POST);
+    }
+
     public static function getVocationNames()
     {
         $url = self::$endpointHost . sprintf(self::$endpointGetVocationNames, null);
