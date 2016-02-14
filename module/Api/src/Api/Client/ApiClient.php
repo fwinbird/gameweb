@@ -160,8 +160,8 @@ class ApiClient {
         }
         
         $response = $client->send();
-        print_r($response->getBody());
-        die('');
+//        print_r($response->getBody());
+//        die('');
         if ($response->isSuccess()) {
 //            print_r('response success in apiclient');
 //            die();

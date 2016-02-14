@@ -11,18 +11,19 @@
     </div>
 
 
-<?php /*
-<div class="control-group <?php echo count($form->get('vocationid')->getMessages()) > 0 ? 'error' : '' ?>">
-    <?php echo $this->formLabel($form->get('vocationid')); ?>
+
+<div class="control-group <?php echo count($form->get('vocationname')->getMessages()) > 0 ? 'error' : '' ?>">
+    <?php echo $this->formLabel($form->get('vocationname')); ?>
     <div class="controls">
-        <?php echo $this->formElement($form->get('vocationid')); ?>
-        <?php echo $this->formElementErrors($form->get('vocationid')) ?>
+        <?php echo $this->formElement($form->get('vocationname')); ?>
+        <?php echo $this->formElementErrors($form->get('vocationname')) ?>
     </div>
 </div>
-*/?>
+
     <div class="btn-group" data-toggle="buttons-radio">
 
-        <?php for($i=0,$count=count($vname);$i<$count/3;$i++){?>
+        <?php /*
+        for($i=0,$count=count($vname);$i<$count/3;$i++){?>
         <div>
             <?php if(($i*3+0)<$count) {?>
                 <button type="button" class="btn btn-primary"><?php print_r($vname[3*($i)]); ?></button>
@@ -35,7 +36,8 @@
             <?php }?>
         </div>
 
-        <?php }?>
+        <?php }
+        */ ?>
     </div>
 
     <div class="control-group <?php echo count($form->get('raceid')->getMessages()) > 0 ? 'error' : '' ?>">
@@ -47,7 +49,8 @@
     </div>
 
     <div class="btn-group" data-toggle="buttons-radio">
-        <?php for($i=0,$count=count($rname);$i<$count/3;$i++){?>
+        <?php /*
+        for($i=0,$count=count($rname);$i<$count/3;$i++){?>
 
             <div>
                 <?php if(($i*3+0)<$count) {?>
@@ -61,7 +64,7 @@
                 <?php }?>
             </div>
 
-        <?php }?>
+        <?php }       */  ?>
     </div>
 
 <div class="control-group <?php echo count($form->get('gender')->getMessages()) > 0 ? 'error' : '' ?>">

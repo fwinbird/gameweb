@@ -49,11 +49,12 @@ class IndexController extends AbstractActionController
         $heroaddForm->setAttribute('action', $this->url()->fromRoute('keep-heroadd'));
         $request = $this->getRequest();
 
-        $abc=array('1'=>'a','2'=>'b');
         $heroaddForm->get('gender')->setValueOptions($racenames);
-//        $heroaddForm->get('gender')->add
-//        die();
-//        $heroaddForm->get
+        $heroaddForm->get('raceid')->setValueOptions($racenames);
+        $heroaddForm->get('vocationname')->setValueOptions($vocationnames);
+        $heroaddForm->get('vocationname')->setLabel('VocationName');
+        $heroaddForm->get('vocationname')->setEmptyOption( 'Choose VocationName here');
+
 
 
         if ($request->isPost()) {
