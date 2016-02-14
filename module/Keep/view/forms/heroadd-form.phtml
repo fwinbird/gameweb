@@ -20,8 +20,6 @@
     </div>
 </div>
 
-    <div class="btn-group" data-toggle="buttons-radio">
-
         <?php /*
         for($i=0,$count=count($vname);$i<$count/3;$i++){?>
         <div>
@@ -38,33 +36,13 @@
 
         <?php }
         */ ?>
-    </div>
 
     <div class="control-group <?php echo count($form->get('raceid')->getMessages()) > 0 ? 'error' : '' ?>">
         <?php echo $this->formLabel($form->get('raceid')); ?>
-        <div class="controls">
+        <div class="controls" id="raceid">
             <?php echo $this->formElement($form->get('raceid')); ?>
             <?php echo $this->formElementErrors($form->get('raceid')); ?>
         </div>
-    </div>
-
-    <div class="btn-group" data-toggle="buttons-radio">
-        <?php /*
-        for($i=0,$count=count($rname);$i<$count/3;$i++){?>
-
-            <div>
-                <?php if(($i*3+0)<$count) {?>
-                    <button type="button" class="btn btn-primary"><?php print_r($rname[3*($i)]); ?></button>
-                <?php }?>
-                <?php if(($i*3+1)<$count) {?>
-                    <button type="button" class="btn btn-primary"><?php print_r($rname[3*($i)+1]); ?></button>
-                <?php }?>
-                <?php if(($i*3+2)<$count) {?>
-                    <button type="button" class="btn btn-primary"><?php print_r($rname[3*($i)+2]); ?></button>
-                <?php }?>
-            </div>
-
-        <?php }       */  ?>
     </div>
 
 <div class="control-group <?php echo count($form->get('gender')->getMessages()) > 0 ? 'error' : '' ?>">

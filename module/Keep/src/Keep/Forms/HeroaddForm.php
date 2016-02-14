@@ -41,17 +41,21 @@ class HeroaddForm extends Form
                 'label_attributes' => array(
                     'class' => 'select'
                 )
-            )
+            ),
         ));
         $this->add(array(
             'name' => 'raceid',
+            'id' => 'id-raceid',
             'type'  => 'Zend\Form\Element\Radio',
             'options' => array(
                 'label' => 'RaceId',
                 'label_attributes' => array(
                     'class' => 'radio'
                 )
-            )
+            ),
+//            'attributes' => array(
+//                'class' => 'thisraceid',
+//            )
         ));
         $this->add(array(
             'name' => 'gender',

@@ -350,3 +350,15 @@ article .lead-info {
 {
     width:200px;
 }
+
+.select
+{
+    font-size: 20px;
+}
+
+#raceid label
+{
+    display: block;
+    float: left;
+    width: 30%;
+}
