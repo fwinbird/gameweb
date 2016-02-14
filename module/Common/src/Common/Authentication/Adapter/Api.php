@@ -39,8 +39,8 @@ class Api implements AdapterInterface
      */
     public function authenticate()
     {
-        print_r('die adapter/api.php function authenticate');
-        die();
+//        print_r('die adapter/api.php function authenticate');
+//        die();
         $result = ApiClient::authenticate(array(
             'username' => $this->username,
             'password' => $this->password

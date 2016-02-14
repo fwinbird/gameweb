@@ -55,15 +55,15 @@ class HeroaddForm extends Form
         ));
         $this->add(array(
             'name' => 'gender',
-            'type'  => 'Zend\Form\Element\Radio',
+            'type'  => 'Zend\Form\Element\MultiCheckbox',
             'options' => array(
                 'label' => 'Gender',
                 'label_attributes' => array(
                     'class' => 'radio'
                 ),
-                'value_options' => array(
-                    0 => '女人',
-                    1 => '男人'
+               'value_options' => array(
+                    0 => '女人'
+//                    1 => '男人'
                 )
             )
         ));

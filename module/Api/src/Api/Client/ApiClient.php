@@ -2,11 +2,17 @@
 
 namespace Api\Client;
 
-use Zend\Http\Client as Client;
+/*use Zend\Http\Client as Client;
 use Zend\Http\Request as Request;
 use Zend\Json\Decoder as JsonDecoder;
 use Zend\Json\Json as Json;
-
+*/
+use Zend\Http\Client;
+use Zend\Http\Request;
+use Zend\Json\Decoder as JsonDecoder;
+use Zend\Json\Json;
+use Zend\Log\Logger;
+use Zend\Log\Writer\Stream;
 /**
  * This client manages all the operations needed to interface with the
  * social network API
@@ -37,11 +43,14 @@ class ApiClient {
     protected static $endpointGetVocationNames = '/keep/vocation/getnames/';
     protected static $endpointGetRaceNames = '/keep/race/getnames/';
 
-    protected static $endpointUserLogin = '/api/user/login/';
+    protected static $endpointUserLogin = '/users/login/';
 
     public static function authenticate($postData)
     {
+//        print_r($postData);
+//        print_r('apiclient at web client');
         $url = self::$endpointHost . sprintf(self::$endpointUserLogin, null);
+//        print_r($url);
         return self::doRequest($url,$postData,Request::METHOD_POST);
     }
 
@@ -141,7 +150,7 @@ class ApiClient {
     
     protected static function doRequest($url, array $postData = null , $method = Request::METHOD_POST)
     {
-//        die('die apiclient dorequest');
+
         $client = self::getClientInstance();
         $client->setUri($url);
         $client->setMethod($method);
@@ -151,14 +160,18 @@ class ApiClient {
         }
         
         $response = $client->send();
-//        print_r($response->getBody());
-//        die('');
+        print_r($response->getBody());
+        die('');
         if ($response->isSuccess()) {
+//            print_r('response success in apiclient');
+//            die();
             return JsonDecoder::decode($response->getBody(), Json::TYPE_ARRAY);
         } else {
+            $logger = new Logger;
+            $logger->addWriter(new Stream('data/logs/apiclient.log'));
+            $logger->debug($response->getBody());
             return FALSE;
         }
-
     }
 
 }
